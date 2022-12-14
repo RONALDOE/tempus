@@ -39,6 +39,14 @@
   "main": "index.js",
   "devDependencies": {},
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Ronaldo E & co",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RONALDOE/tempus.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RONALDOE/tempus/issues"
+  },
+  "homepage": "https://github.com/RONALDOE/tempus#readme"
 }
