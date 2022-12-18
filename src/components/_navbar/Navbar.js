@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import '../../css/navbar.css'
-import logo from '../../assets/Logo Tempus.svg'
+
 
 export class Singin extends Component {
   render() {
@@ -8,7 +8,7 @@ export class Singin extends Component {
       <div>
         <nav className="navbar">
             <div className='left'>
-                <img src={logo} alt="logo" />
+                <img src="../../assets/logos/logo.png" alt="logo" />
             </div>
             <div className='right'>
                 <input type="checkbox" id='check'/>

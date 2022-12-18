@@ -11,6 +11,7 @@ export default class Footer extends Component {
             <p><a href="google.com">Sobre Nosotros</a></p>
             <p><a href="google.com">Contactanos</a></p>
             <p><a href="google.com">Precios</a></p>
+            <p><a href='mailto:tempus@gmail.com?Subject=Tempus'>tempus@gmail.com</a></p>
             </div>
 
         <div className='footer-item'>
@@ -23,7 +24,6 @@ export default class Footer extends Component {
         <h2> Follow Us </h2>
             <ul>
                 <li> <i className="fa-brands fa-instagram"></i> </li>
-                <li> <i className="fa-brands fa-linkedin-in"></i> </li>
                 <li> <i className="fa-brands fa-youtube"></i> </li>
                 <li> <i className="fa-brands fa-twitter"></i> </li>
             </ul>
