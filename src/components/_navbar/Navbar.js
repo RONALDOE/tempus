@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import '../../css/navbar.css'
+import { Outlet, Link } from "react-router-dom";
 
 
 export class Singin extends Component {
@@ -14,7 +15,7 @@ export class Singin extends Component {
                 <input type="checkbox" id='check'/>
                 <label htmlFor="check">
                     <ul className='list'>
-                        <li><a href="google.com">Inicio</a></li>                        
+                        <li><Link to="/Uploader">Inicio</Link></li>                        
                         <li><a href="google.com">Sevicios</a></li>
                         <li><a href="google.com">Nosotros</a></li>
                         <li><a href="google.com">Contactanos</a></li>

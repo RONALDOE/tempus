@@ -1,0 +1,89 @@
+@import url(main.css);
+
+.tempusMeaning {
+  height: 25rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.w {
+  background-color: white;
+  flex-direction: row;
+}
+
+.b {
+  background-color: var(--black1);
+  flex-direction: row-reverse;
+}
+.leftMeaning {
+  width: 50%;
+  position: relative;
+}
+
+.rightMeaning {
+  width: 50%;
+  position: relative;
+}
+
+#one {
+  background-image: url(/src/assets/mainpage/chat.svg);
+}
+#two {
+  background-image: url(/src/assets/mainpage/analitics.svg);
+}
+#three {
+  background-image: url(/src/assets/mainpage/freestyle.svg);
+}
+#four {
+  background-image: url(/src/assets/mainpage/teamwork.svg);
+}
+
+.photo {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.textMeaning {
+  margin: 10px;
+  color: var(--accent);
+  position: absolute;
+  font-size: 2vw;
+  font-family: "Oswald", sans-serif;
+  line-height: 40px;
+  width: 50%;
+}
+
+.w > .text > p > .textMeaning {
+  text-align: left;
+  top: 50%;
+  left: 50%;
+  transform: translate(-100%, -50%);
+  border-left: 5px;
+  border-left-color: var(--black1);
+  border-left-style: solid;
+  border-bottom: 5px;
+  border-bottom-color: var(--black1);
+  border-bottom-style: solid;
+  margin: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.b > .text > p > .textMeaning {
+  text-align: right;
+  top: 50%;
+  left: 50%;
+  transform: translate(-0%, -50%);
+  border-right: 5px;
+  border-right-color: white;
+  border-right-style: solid;
+  border-top: 5px;
+  border-top-color: white;
+  border-top-style: solid;
+  margin: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
