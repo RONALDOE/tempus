@@ -4,11 +4,13 @@ import reportWebVitals from './reportWebVitals'
 import Navbar from './components/_navbar/Navbar'
 import Footer from './components/_footer/Footer'
 import Mainpage from './pages/mainpage/Mainpage'
+import Writing from './components/_writing/Writing'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Navbar/>
+    <Writing/>
     <Mainpage/>
     <Footer/>
   </React.StrictMode>
