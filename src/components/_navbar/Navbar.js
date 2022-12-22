@@ -1,31 +1,36 @@
 import React, { Component } from 'react'
 import '../../css/navbar.css'
-import { Outlet, Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
+import logo from "../../assets/Logos/logo.svg"
 
-
-export class Singin extends Component {
+export class Navbar extends Component {
   render() {
     return (
-      <div>
+      <>
         <nav className="navbar">
-            <div className='left'>
-                <img src="../../assets/logos/logo.png" alt="logo" />
+            <div className='navLeft'>
+                <Link to="/" className='navLink'><div className='navLogo'/>
+                <h1 className="navLogoText">Tempus</h1>
+                </Link>
             </div>
-            <div className='right'>
+            <div className='navRight'>
                 <input type="checkbox" id='check'/>
                 <label htmlFor="check">
                     <ul className='list'>
-                        <li><Link to="/Uploader">Inicio</Link></li>                        
-                        <li><a href="google.com">Sevicios</a></li>
-                        <li><a href="google.com">Nosotros</a></li>
+                        <li><Link to="/">Inicio</Link></li>                        
+                        <li><a href="/upload">Sevicios</a></li>
+                        <li><a href="/*">Nosotros</a></li>
                         <li><a href="google.com">Contactanos</a></li>
                         </ul>
                 </label>
             </div>
         </nav>
-      </div>
+<Outlet/>
+
+      </>
+      
     )
   }
 }
 
-export default Singin
+export default Navbar

@@ -1,9 +1,3 @@
-import React, { Component } from 'react'
-
-export default class Uploader extends Component {
-  render() {
-    return (
-      <div>Uploader</div>
-    )
-  }
+export default  function Uploader(){
+  return <h1>Si</h1>
 }
