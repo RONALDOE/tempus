@@ -1,8 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import '../../css/navbar.css'
-import { Link, Outlet } from "react-router-dom";
-import logo from "../../assets/Logos/logo.svg"
-import user from '../../assets/user.svg'
+import { Link, Outlet } from "react-router-dom"
+import user from '../../assets/user.png'
 const Navbar = () => {
 
     return (
@@ -21,7 +20,7 @@ const Navbar = () => {
                         <li><a href="#servicescontainer">Sevicios</a></li>
                         <li><a href="#ourteambody">Nosotros</a></li>
                         <li><a href="google.com">Contactanos</a></li>
-                        <Link to="/login"><img className='loginPhoto' href={user} alt="as" /></Link>
+                        <li><Link to='/login' id='loginButton'>Ingresar</Link></li>
 
                         </ul>
                 </label>
