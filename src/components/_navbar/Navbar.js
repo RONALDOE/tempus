@@ -3,11 +3,11 @@ import '../../css/navbar.css'
 import { Link, Outlet } from "react-router-dom";
 import logo from "../../assets/Logos/logo.svg"
 
-export class Navbar extends Component {
-  render() {
+const Navbar = () => {
+
     return (
       <>
-        <nav className="navbar">
+        <nav className="navbar" id='navbar'>
             <div className='navLeft'>
                 <Link to="/" className='navLink'><div className='navLogo'/>
                 <h1 className="navLogoText">Tempus</h1>
@@ -17,9 +17,9 @@ export class Navbar extends Component {
                 <input type="checkbox" id='check'/>
                 <label htmlFor="check">
                     <ul className='list'>
-                        <li><Link to="/">Inicio</Link></li>                        
-                        <li><a href="/upload">Sevicios</a></li>
-                        <li><a href="/*">Nosotros</a></li>
+                        <li><a href='#root'>Inicio</a></li>                        
+                        <li><a href="#servicescontainer">Sevicios</a></li>
+                        <li><a href="#ourteambody">Nosotros</a></li>
                         <li><a href="google.com">Contactanos</a></li>
                         </ul>
                 </label>
@@ -31,6 +31,6 @@ export class Navbar extends Component {
       
     )
   }
-}
+
 
 export default Navbar

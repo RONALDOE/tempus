@@ -12,11 +12,11 @@ import teamcolaboration from "../../../assets/mainpage/team colaboration.svg";
 class Services extends Component {
   render() {
     return (
-      <>
+      <div className="allcontainer" id="servicescontainer">
         <div class="main-div" id="upper">
           <div className="card">
             <div className="imgbox">
-              <img src={chat} alt="" />
+              <img className='servicesimg' src={chat} alt="" />
             </div>
             <div className="content">
               <h2>Keep Smiling</h2>
@@ -29,7 +29,7 @@ class Services extends Component {
           </div>
           <div className="card">
             <div className="imgbox">
-              <img src={analitics} alt="" />
+              <img className='servicesimg'src={analitics} alt="" />
             </div>
             <div className="content">
               <h2>Keep Smiling</h2>
@@ -42,7 +42,7 @@ class Services extends Component {
           </div>
           <div className="card">
             <div className="imgbox">
-              <img src={freestyle} alt="" />
+              <img className='servicesimg' src={freestyle} alt="" />
             </div>
             <div className="content">
             <h2>Keep Smiling</h2>
@@ -63,7 +63,7 @@ class Services extends Component {
                 </div>
                 <div className="card">
                 <div className="imgbox">
-                    <img src={teamcolaboration} alt=""/>
+                    <img className='servicesimg'  src={teamcolaboration} alt=""/>
                 </div>
                 <div className="content">
                     <h2>Keep Smiling</h2>
@@ -73,7 +73,7 @@ class Services extends Component {
             </div>
             <div className="card">
                 <div className="imgbox">
-                    <img src={realtime} alt=""/>
+                    <img className='servicesimg' src={realtime} alt=""/>
                 </div>
                 <div className="content">
                     <h2>Keep Smiling</h2>
@@ -83,7 +83,7 @@ class Services extends Component {
             </div>
             <div className="card">
                 <div className="imgbox">
-                    <img src={remotework} alt=""/>
+                    <img className='servicesimg' src={remotework} alt=""/>
                 </div>
                 <div className="content">
                     <h2>Keep Smiling</h2>
@@ -92,7 +92,7 @@ class Services extends Component {
                 </div>
             </div>
         </div>
-      </>
+      </div>
     );
   }
 }

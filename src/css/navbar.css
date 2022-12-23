@@ -25,8 +25,7 @@ flex-direction: row;
     align-items: center;
     line-height: 5rem;
 }
-
-
+  
 .navLeft{
     width: 50%;
     display: flex;

@@ -39,7 +39,7 @@
   z-index: 99;
 }
 
-img {
+.servicesimg {
   width: 100%;
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
@@ -67,14 +67,7 @@ img {
   color: var(--black1);
 
 }
-#upper{
-  margin-top: 5rem;
 
-}
-#lower{
-  margin-bottom: 5rem;
-
-}
 
 .main-div {
   width: 100%;
@@ -83,9 +76,13 @@ img {
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
+  
 
 }
+.allcontainer{
+  background: linear-gradient(var(--logo-1) 0%, var(--logo-2)100%);
 
+}
 
 
 
