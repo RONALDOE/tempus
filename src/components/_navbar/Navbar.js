@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import '../../css/navbar.css'
 import { Link, Outlet } from "react-router-dom";
 import logo from "../../assets/Logos/logo.svg"
-
+import user from '../../assets/user.svg'
 const Navbar = () => {
 
     return (
@@ -21,6 +21,8 @@ const Navbar = () => {
                         <li><a href="#servicescontainer">Sevicios</a></li>
                         <li><a href="#ourteambody">Nosotros</a></li>
                         <li><a href="google.com">Contactanos</a></li>
+                        <Link to="/login"><img className='loginPhoto' href={user} alt="as" /></Link>
+
                         </ul>
                 </label>
             </div>

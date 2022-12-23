@@ -11,7 +11,9 @@
     font-family: 'Ubuntu', sans-serif;
 }
 
-
+.loginPhoto{
+    height:3rem;
+}
 .navLink{
 display: flex;
 flex-direction: row;

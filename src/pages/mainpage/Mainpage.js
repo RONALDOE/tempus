@@ -8,7 +8,6 @@ export class Mainpage extends Component {
   render() {
     return (
  <>
-
       <Writing/>
       <Services/>
       <Pricing/>
