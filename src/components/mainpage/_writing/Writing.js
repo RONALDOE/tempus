@@ -1,6 +1,6 @@
 import Typed from "typed.js";
 import { useEffect, useRef } from "react";
-import '../../css/writing.css'
+import '../../../css/writing.css'
 const Writing = () => {
 
 const el = useRef(null);
