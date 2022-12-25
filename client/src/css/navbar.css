@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Ubuntu:wght@300;700&display=swap');
+@import url('main.css');
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css);
+
+
+
+.loginPhoto{
+    height:3rem;
+}
+.navLink{
+display: flex;
+flex-direction: row;
+}
+
+
+.navbar {
+    background-color: var(--accent);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    line-height: 5rem;
+}
+  
+.navLeft{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+}
+
+.navLogo{
+    width: 5rem;
+    height: 5rem;
+    background-image: url('../assets/Logos/logo.png');
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+#loginButton{
+    color: black;
+    background-color: white;
+    border-radius: 7px ;
+}
+
+.checkBtn {
+    display: none;
+}
+
+
+#check {
+    display: none;
+}
+
+
+.checkBtn {
+    cursor: pointer;
+    font-size: 30px;
+    float: right;
+    color: #ed1e79;
+    line-height: 80px;
+}
+
+.navRight ul {
+    display: flex;
+    list-style: none;
+}
+
+.navRight ul li a {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 1s;
+}
+
+.navRight ul li a:hover {
+    background-color: #fff;
+    border-radius: 7px;
+    color: rgb(22, 7, 36);
+}
+
+@media screen and (max-width:805px) {
+    .list {
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(22, 7, 36);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 4rem;
+        left: 100%;
+        transition: all 1s;
+    }
+
+    #check {
+        display: none;
+    }
+
+    .checkBtn {
+        display: block;
+    }
+
+    #check:checked~ul {
+        left: 0%;
+    }
+
+}

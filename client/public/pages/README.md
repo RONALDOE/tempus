@@ -1,0 +1,1 @@
+Suban sus componentes como ./nombre_componente/componente.html || componente.css
