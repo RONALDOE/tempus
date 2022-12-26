@@ -26,7 +26,7 @@
     width: 380px;
     height: 420px;
     transform-origin: bottom right;
-    background: linear-gradient(0deg, transparent, #5956e9, #5956e9);
+    background: linear-gradient(0deg, transparent, var(--accent), var(--accent));
     animation: animate 6s linear infinite; 
 }
 
@@ -39,7 +39,7 @@
     width: 380px;
     height: 420px;
     transform-origin: bottom right;
-    background: linear-gradient(0deg, transparent, #5956e9, #5956e9);
+    background: linear-gradient(0deg, transparent, var(--accent), var(--accent));
     animation: animate 6s linear infinite; 
     animation-delay: -3s;
 }
@@ -65,7 +65,7 @@
 }
 
 .loginform .loginh2{
-    color: #5956e9;
+    color: var(--accent);
     font-weight: 500;
     text-align: center;
     letter-spacing: 0.1em;
@@ -105,7 +105,7 @@
 
 .inputBox .logininput:valid ˜span, 
 .inputBox .logininput:focus ˜ span{
-    color: #5956e9;
+    color: var(--accent);
     transform: translateX(0px)
     translateY(-34px);
     font-size: 0.75em;
@@ -117,7 +117,7 @@
     bottom: 0;
     width: 100%;
     height: 2px;
-    background: #5956e9;
+    background: var(--accent);
     border-radius: 4px; 
     overflow: hidden;
     transition: 0.5s;
@@ -139,7 +139,7 @@
 
 .links .logina:hover, 
 .links .logina:nth-child(2){
-    color: #5956e9;
+    color: var(--accent);
 }
 
 .logininput[type="submit"]{
@@ -149,14 +149,14 @@
     cursor: pointer;
     font-weight: 600;
     border-radius: 4px;
-    background: #5956e9;
+    background: var(--accent);
     width: 100px;
     margin-top: 10px;
 }
 
 .logininput[type="submit"]:hover{
-    box-shadow: 0 0 5px #5956e9, 
-                0 0 25px #5956e9, 
-                0 0 50px #5956e9, 
-                0 0 100px #5956e9;  
+    box-shadow: 0 0 5px var(--accent), 
+                0 0 25px var(--accent), 
+                0 0 50px var(--accent), 
+                0 0 100px var(--accent);  
 }
