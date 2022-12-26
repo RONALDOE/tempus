@@ -5,44 +5,32 @@ export default class Login extends Component {
   render() {
     return (
       <div id="loginpagecontainer">
-        <div class="loginContainer">
-          <h2 class="t-center">Login</h2>
-          <form action="">
-            <div class="inputDiv">
-              <label for="name" class="username">
-                Username
-              </label>
-              <div class="userArea">
-                <i class="fa-solid fa-user"></i>
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  placeholder="Type your username"
-                />
-              </div>
-              <hr />
-            </div>
-            <div class="inputDiv">
-              <label for="password" class="username">
-                Password
-              </label>
-              <div class="userArea">
-                <i class="fa-solid fa-key"></i>
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  placeholder="Type your password"
-                />
-              </div>
-              <hr />
-            </div>
+        <div className="box">
+            <form className="loginform" action=""
+                autocomplete="off"> 
+                <h2 className="loginh2"> Login </h2>
+                <div className="inputBox">
+                    <input className="logininput" type="text"
+                    required />
+                    <span className="loginspan">Nombre</span><i className="logini"></i>
+                </div>
 
-            <span class="forgotPassword">Forgot password?</span>
-            <button class="btn">Login</button>
-          </form>
-        </div>
+                <div class="inputBox">
+                    <input className="logininput" type="password"
+                    required />
+                    <span className="loginspan">Contraseña</span><i className="logini"></i>
+                </div>
+
+                <div className="links">
+                    <font size="9"> 
+                        <a className="logina" href="#">Olvidaste la Contraseña? </a>
+                        <a className="logina" href="#">Sign Up</a>
+                    </font>
+                </div>
+                    <input className="logininput" type="submit"
+                    value="Login"/>
+            </form>
+        </div> 
       </div>
     );
   }
