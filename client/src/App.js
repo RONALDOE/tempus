@@ -1,5 +1,4 @@
-import ReactDOM from "react-dom/client";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route} from "react-router-dom";
 import Mainpage from "./pages/mainpage/Mainpage";
 import Home from "./pages/home/Home.js";
 import Uploader from "./pages/uploader/Uploader.js";
