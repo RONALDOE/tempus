@@ -22,6 +22,7 @@ export default class Login extends Component {
 
                     <input className="logininput" type="submit"
                     value="Login"/>
+
                 <div className="loginlinks">
                     <font size="9"> 
                         <Link className="loginlink" to="/forgot">Olvidaste la Contraseña? </Link>
@@ -33,4 +34,4 @@ export default class Login extends Component {
       </div>
     );
   }
-    }
+}

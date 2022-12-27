@@ -30,10 +30,11 @@ export default class Signup extends Component {
 
                     <input className="singupinput" type="submit"
                     value="Registrarse"/>
+                    
                 <div className="singuplinks">
                     <font size="9"> 
                         <Link className="signuplink" to="#">Ya dispones de un usuario? </Link>
-                        <Link className="signuplink" to="/login">Log In</Link>
+                        <Link className="signuplink" to="/login">Login</Link>
                     </font>
                 </div>
 

@@ -143,8 +143,8 @@
     text-decoration: beige;
 }
 
-.singuplinks .singupa:hover, 
-.singuplinks .singupa:nth-child(2){
+.singuplinks .singuplink, 
+.singuplinks .singuplink:nth-child(2){
     color: var(--accent);
 }
 
