@@ -4,29 +4,36 @@ import {useNavigate, Link} from 'react-router-dom';
 import {useUserContext} from '../../context/UserContext'
 import '../../css/login.css';
 
-function Login  () {
-    const navigate = useNavigate();
-    const [Guide, SetGuide] = useState(()=> {return {status:false, msg: 'Acceda con su nombre de usuario y contraseña', style:{color:'black'}}});
-    const [User, SetUser] = useUserContext();
-    useEffect(() => {
-      const checkuser = async () =>{
-        let Nuser=null;
-        if(document.cookie.includes('token')){
-          Nuser = {token: document.cookie.replace('token=',''),auth: true};
-          const resp = await Axios.post('/auth',{
+function Login() {
+  const navigate = useNavigate();
+  const [Guide, SetGuide] = useState(() => {
+    return {
+      status: false,
+      msg: "Ingrese con su E-Mail y contraseña",
+      style: { color: "black" },
+    };
+  });
+  const [User, SetUser] = useUserContext();
+  useEffect(() => {
+      const checkuser = async () => {
+        let NUser = null;
+        if (document.cookie.includes("token")) {
+          NUser = { token: document.cookie.replace("token=", ""), auth: true };
+          const resp = await Axios.post("/auth", {
             token: NUser.token,
-            auth: false
+            auth: false,
           });
-          if (resp.status === 200){
-            SetUser({...NUser, auth: true, UserData: resp.data.UserData});
-            navigate('/');
+          if (resp.status === 200) {
+            SetUser({ ...NUser, auth: true, UserData: resp.data.UserData });
+            navigate("/");
           }
-          if (resp.status===400){
-            SetUser({...NUser, auth: false});
+          if (resp.status === 400) {
+            SetUser({ ...NUser, auth: false });
           }
-          }
-          checkuser();
-        },[ navigate, SetUser]);
+        }
+      };
+      checkuser();
+    }, [navigate, SetUser]);
 
         const LogIn = async()=>{
           const Username = User.UserData.Username, psswd = User.UserData.psswd;
@@ -42,14 +49,14 @@ function Login  () {
             }
           }catch(err){
             SetGuide({status:true, msg: err.response.data.err, style: {color:'red'}});
-          }
+          
         }
 
         }
-      }
+      
     
 
-    })
+    
 
 
     return (
@@ -60,13 +67,25 @@ function Login  () {
                 <h2 className="loginh2"> Login </h2>
                 <div className="inputBox">
                     <input className="logininput" type="text"
-                    required />
+                    required 
+                    onChange={(e) => {
+                      SetUser({
+                        ...User,
+                        UserData: {...User.UserData, Username: e.target.value},
+                      });
+                    }} />
                     <span className="loginspan">Nombre</span><i className="logini"></i>
                 </div>
 
                 <div class="inputBox">
                     <input className="logininput" type="password"
-                    required />
+                    required 
+                    onChange={(e) => {
+                      SetUser({
+                        ...User,
+                        UserData: { ...User.UserData, password: e.target.value },
+                      });
+                    }} />
                     <span className="loginspan">Contraseña</span><i className="logini"></i>
                 </div>
 
@@ -82,7 +101,6 @@ function Login  () {
         </div> 
       </div>
     );
-
-}
+    }
 
 export default Login;

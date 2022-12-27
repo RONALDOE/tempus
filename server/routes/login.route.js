@@ -1,4 +1,4 @@
-const { Router } = require('express');
+const router = require('express').router;
 const express = require('express');
 const con = require ('../config/bd.config');
 const bcrypt = require('bcrypt');
