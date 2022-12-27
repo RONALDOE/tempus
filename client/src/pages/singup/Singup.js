@@ -28,6 +28,8 @@ export default class Signup extends Component {
                     <span className="singupspan">Contraseña</span><i className="singupi"></i>
                 </div>
 
+                    <input className="singupinput" type="submit"
+                    value="Registrarse"/>
                 <div className="singuplinks">
                     <font size="9"> 
                         <Link className="signuplink" to="#">Ya dispones de un usuario? </Link>
@@ -35,8 +37,6 @@ export default class Signup extends Component {
                     </font>
                 </div>
 
-                    <input className="singupinput" type="submit"
-                    value="Registrarse"/>
             </form>
         </div> 
       </div>
