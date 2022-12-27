@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import '../../css/login.css'
+import {Link} from "react-router-dom"
 
 export default class Login extends Component {
   render() {
@@ -24,7 +25,7 @@ export default class Login extends Component {
                 <div className="links">
                     <font size="9"> 
                         <a className="logina" href="#">Olvidaste la Contraseña? </a>
-                        <a className="logina" href="#">Sign Up</a>
+                        <Link className="logina" to="/register.js">Registrarse</Link>
                     </font>
                 </div>
                     <input className="logininput" type="submit"
