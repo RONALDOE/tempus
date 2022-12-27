@@ -23,7 +23,7 @@ export default class Login extends Component {
                 <div className="loginlinks">
                     <font size="9"> 
                         <Link className="loginlink" to="/forgot">Olvidaste la Contraseña? </Link>
-                        <Link className="loginlink" to="/register">Registrarse</Link>
+                        <Link className="loginlink" to="/signup">Registrarse</Link>
                     </font>
                 </div>
                     <input className="logininput" type="submit"
