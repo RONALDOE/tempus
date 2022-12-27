@@ -7,4 +7,4 @@ password: "vdreanoivh",
 database:"tempus" 
 })
 
-module.exports = db;
+module.exports = con;

@@ -7,7 +7,7 @@ import Nopage from "./pages/nopage/Nopage.js";
 import Login from "./pages/login/Login.js";
 import Joinus from "./pages/joinus/Joinus.js";
 import Navbar from './components/_navbar/Navbar'
-import Signup from "./pages/login/Singup"
+import Signup from "./pages/singup/Singup"
 
 export default function App() {
   return (
@@ -18,7 +18,7 @@ export default function App() {
         <Route index element={<Mainpage />}/>
           <Route index element={<Home />} />
           <Route path="upload" element={<Uploader />} />
-          <Route path="register" element={<Signup />} />
+          <Route path="singup" element={<Signup />} />
           <Route path="stadistics" element={<h1>asda</h1>} />
           <Route path="login" element={<Login />} />
           <Route path="joinus" element={<Joinus />} />

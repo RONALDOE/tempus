@@ -8,7 +8,7 @@
     background: #1b1b1b;
 }
 
-.box{
+.loginbox{
     position: relative;
     width: 380px;
     height: 420px;
@@ -17,7 +17,7 @@
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.394);
 }
 
-.box::before{
+.loginbox::before{
     content: "";
     z-index: 1;
     position:absolute;
@@ -30,7 +30,7 @@
     animation: animate 6s linear infinite; 
 }
 
-.box::after{
+.loginbox::after{
     content: "";
     z-index: 1;
     position:absolute;
@@ -71,13 +71,13 @@
     letter-spacing: 0.1em;
 }
 
-.inputBox{
+.logininputBox{
     position: relative;
     width: 300px;
     margin-top: 35px;
 }
 
-.inputBox .logininput{
+.logininputBox .logininput{
     position: relative;
     width: 100%;
     padding: 20px 10px 10px;
@@ -92,7 +92,7 @@
     z-index: 10;
 }
 
-.inputBox .loginspan{
+.logininputBox .loginspan{
     position: absolute;
     left: 0;
     padding: 20px, 0px, 10px;
@@ -103,15 +103,15 @@
     transition: 0.5s;
 }
 
-.inputBox .logininput:valid ˜span, 
-.inputBox .logininput:focus ˜ span{
+.logininputBox .logininput:valid ˜span, 
+.logininputBox .logininput:focus ˜ span{
     color: var(--accent);
     transform: translateX(0px)
     translateY(-34px);
     font-size: 0.75em;
 }
 
-.inputBox .logini{
+.logininputBox .logini{
     position: absolute;
     left: 0;
     bottom: 0;
@@ -125,20 +125,20 @@
     z-index: 9;
 }
 
-.inputBox .logininput:valid ˜ i,
-.inputBox .logininput:focus ˜ i{
+.logininputBox .logininput:valid ˜ i,
+.logininputBox .logininput:focus ˜ i{
     height: 44px;
 } 
 
-.links .logina{
+.loginlinks .loginlink{
     margin: 10px 0;
     font-size: 0.25em;
     color: #8f8f8f;
     text-decoration: beige;
 }
 
-.links .logina:hover, 
-.links .logina:nth-child(2){
+.loginlinks .loginlink:hover, 
+.loginlinks .loginlink:nth-child(2){
     color: var(--accent);
 }
 

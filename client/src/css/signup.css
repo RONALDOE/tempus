@@ -1,20 +1,14 @@
-#registerpagecontainer{
-    margin: 0; 
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
 
-body{
+#singuppagecontainer{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 500vh;
+    min-height: 100vh;
     flex-direction: column;
     background: #1b1b1b;
 }
 
-.box{
+.singupbox{
     position: relative;
     width: 380px;
     height: 500px;
@@ -23,7 +17,7 @@ body{
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.394);
 }
 
-.box::before{
+.singupbox::before{
     content: "";
     z-index: 1;
     position:absolute;
@@ -36,7 +30,7 @@ body{
     animation: animate 6s linear infinite; 
 }
 
-.box::after{
+.singupbox::after{
     content: "";
     z-index: 1;
     position:absolute;
@@ -60,7 +54,7 @@ body{
     }
 }
 
-.registerform{
+.singupform{
     position:absolute;
     inset: 2px;
     background: #1b1b1b;
@@ -70,20 +64,20 @@ body{
     flex-direction: column;
 }
 
-.registerform .registerh2{
+.singupform .singuph2{
     color: var(--accent);
     font-weight: 500;
     text-align: center;
     letter-spacing: 0.1em;
 }
 
-.inputBox{
+.singupinputBox{
     position: relative;
     width: 300px;
     margin-top: 35px;
 }
 
-.inputBox .registerinput{
+.singupinputBox .singupinput{
     position: relative;
     width: 100%;
     padding: 20px 10px 10px;
@@ -98,7 +92,7 @@ body{
     z-index: 10;
 }
 
-.inputBox .registerspan{
+.singupinputBox .singupspan{
     position: absolute;
     left: 0;
     padding: 20px, 0px, 10px;
@@ -109,15 +103,15 @@ body{
     transition: 0.5s;
 }
 
-.inputBox .registerinput:valid ˜span, 
-.inputBox .registerinput:focus ˜ span{
+.singupinputBox .singupinput:valid ˜span, 
+.singupinputBox .singupinput:focus ˜ span{
     color: var(--accent);
     transform: translateX(0px)
     translateY(-34px);
     font-size: 0.75em;
 }
 
-.inputBox .registeri{
+.singupinputBox .singupi{
     position: absolute;
     left: 0;
     bottom: 0;
@@ -131,24 +125,24 @@ body{
     z-index: 9;
 }
 
-.inputBox .registerinput:valid ˜ i,
-.inputBox .registerinput:focus ˜ i{
+.singupinputBox .singupinput:valid ˜ i,
+.singupinputBox .singupinput:focus ˜ i{
     height: 44px;
 } 
 
-.links .registera{
+.singuplinks .singupa{
     margin: 10px 0;
     font-size: 0.25em;
     color: #8f8f8f;
     text-decoration: beige;
 }
 
-.links .registera:hover, 
-.links .registera:nth-child(2){
+.singuplinks .singupa:hover, 
+.singuplinks .singupa:nth-child(2){
     color: var(--accent);
 }
 
-.registerinput[type="submit"]{
+.singupinput[type="submit"]{
     border: none;
     outline: none;
     padding: 11px 25px;
@@ -156,7 +150,10 @@ body{
     font-weight: 600;
     border-radius: 4px;
     background: var(--accent);
+<<<<<<< HEAD
     width: 120px;
+=======
+>>>>>>> cbd926f87b5eeebafc38feef3343a9520fc414ca
     margin-top: 10px;
 }
 
