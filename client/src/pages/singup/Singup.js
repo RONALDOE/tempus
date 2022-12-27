@@ -27,7 +27,7 @@ export default class Signup extends Component {
                     <span className="singupspan">Contraseña</span><i className="singupi"></i>
                 </div>
 
-                <div className="links">
+                <div className="singuplinks">
                     <font size="9"> 
                         <a href="#">Ya dispones de un usuario? </a>
                         <a href="/login">Log In</a>
