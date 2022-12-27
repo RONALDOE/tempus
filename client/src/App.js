@@ -18,8 +18,8 @@ export default function App() {
         <Route index element={<Mainpage />}/>
           <Route index element={<Home />} />
           <Route path="upload" element={<Uploader />} />
-          <Route path="singup" element={<Signup />} />
-          <Route path="stadistics" element={<h1>asda</h1>} />
+          <Route path="signup" element={<Signup />} />
+          <Route path="stadistics" element={<Stadistics/>} />
           <Route path="login" element={<Login />} />
           <Route path="joinus" element={<Joinus />} />
           <Route path="*" element={<Nopage />} />

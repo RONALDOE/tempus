@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import '../../css/signup.css'
+import '../../css/signup.css';
+import {Link} from 'react-router-dom';
 
 export default class Signup extends Component {
   render() {
@@ -29,8 +30,8 @@ export default class Signup extends Component {
 
                 <div className="links">
                     <font size="9"> 
-                        <a href="#">Ya dispones de un usuario? </a>
-                        <a href="/login">Log In</a>
+                        <Link className="signuplink" to="#">Ya dispones de un usuario? </Link>
+                        <Link className="signuplink" to="/login">Log In</Link>
                     </font>
                 </div>
 

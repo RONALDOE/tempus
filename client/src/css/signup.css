@@ -129,6 +129,12 @@
 .singupinputBox .singupinput:focus ˜ i{
     height: 44px;
 } 
+.signuplink{
+    margin: 10px 0;
+    font-size: 0.25em;
+    color: #8f8f8f;
+    text-decoration: beige;
+}
 
 .singuplinks .singupa{
     margin: 10px 0;

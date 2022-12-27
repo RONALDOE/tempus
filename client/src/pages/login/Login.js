@@ -20,14 +20,14 @@ export default class Login extends Component {
                     <span className="loginspan">Contraseña</span><i className="logini"></i>
                 </div>
 
+                    <input className="logininput" type="submit"
+                    value="Login"/>
                 <div className="loginlinks">
                     <font size="9"> 
                         <Link className="loginlink" to="/forgot">Olvidaste la Contraseña? </Link>
                         <Link className="loginlink" to="/signup">Registrarse</Link>
                     </font>
                 </div>
-                    <input className="logininput" type="submit"
-                    value="Login"/>
             </form>
         </div> 
       </div>
