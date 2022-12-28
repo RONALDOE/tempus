@@ -1,5 +1,5 @@
 
-#singuppagecontainer{
+#signuppagecontainer{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,7 +8,7 @@
     background: #1b1b1b;
 }
 
-.singupbox{
+.signupbox{
     position: relative;
     width: 380px;
     height: 500px;
@@ -17,7 +17,7 @@
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.394);
 }
 
-.singupbox::before{
+.signupbox::before{
     content: "";
     z-index: 1;
     position:absolute;
@@ -30,7 +30,7 @@
     animation: animate 6s linear infinite; 
 }
 
-.singupbox::after{
+.signupbox::after{
     content: "";
     z-index: 1;
     position:absolute;
@@ -54,7 +54,7 @@
     }
 }
 
-.singupform{
+.signupform{
     position:absolute;
     inset: 2px;
     background: #1b1b1b;
@@ -64,20 +64,20 @@
     flex-direction: column;
 }
 
-.singupform .singuph2{
+.signupform .signuph2{
     color: var(--accent);
     font-weight: 500;
     text-align: center;
     letter-spacing: 0.1em;
 }
 
-.singupinputBox{
+.signupinputBox{
     position: relative;
     width: 300px;
     margin-top: 35px;
 }
 
-.singupinputBox .singupinput{
+.signupinputBox .signupinput{
     position: relative;
     width: 100%;
     padding: 20px 10px 10px;
@@ -92,7 +92,7 @@
     z-index: 10;
 }
 
-.singupinputBox .singupspan{
+.signupinputBox .signupspan{
     position: absolute;
     left: 0;
     padding: 20px, 0px, 10px;
@@ -103,15 +103,15 @@
     transition: 0.5s;
 }
 
-.singupinputBox .singupinput:valid ˜span, 
-.singupinputBox .singupinput:focus ˜ span{
+.signupinputBox .signupinput:valid ˜span, 
+.signupinputBox .signupinput:focus ˜ span{
     color: var(--accent);
     transform: translateX(0px)
     translateY(-34px);
     font-size: 0.75em;
 }
 
-.singupinputBox .singupi{
+.signupinputBox .signupi{
     position: absolute;
     left: 0;
     bottom: 0;
@@ -125,8 +125,8 @@
     z-index: 9;
 }
 
-.singupinputBox .singupinput:valid ˜ i,
-.singupinputBox .singupinput:focus ˜ i{
+.signupinputBox .signupinput:valid ˜ i,
+.signupinputBox .signupinput:focus ˜ i{
     height: 44px;
 } 
 .signuplink{
@@ -136,19 +136,19 @@
     text-decoration: beige;
 }
 
-.singuplinks .singuplink{
+.signuplinks .signuplink{
     margin: 10px 0;
     font-size: 0.25em;
     color: #8f8f8f;
     text-decoration: beige;
 }
 
-.singuplinks .singuplink, 
-.singuplinks .singuplink:nth-child(2){
+.signuplinks .signuplink, 
+.signuplinks .signuplink:nth-child(2){
     color: var(--accent);
 }
 
-.singupinput[type="submit"]{
+.signupinput[type="submit"]{
     border: none;
     outline: none;
     padding: 11px 25px;
