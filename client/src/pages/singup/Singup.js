@@ -5,33 +5,33 @@ import {Link} from 'react-router-dom';
 export default class Signup extends Component {
   render() {
     return (
-      <div id="singuppagecontainer">
-        <div className="singupbox">
-            <form className="singupform" action=""
+      <div id="signuppagecontainer">
+        <div className="signupbox">
+            <form className="signupform" action=""
                 autocomplete="off"> 
-                <h2 className="singuph2"> Sign Up </h2>
-                <div className="singupinputBox">
-                    <input className="singupinput" type="text"
+                <h2 className="signuph2"> Sign Up </h2>
+                <div className="signupinputBox">
+                    <input className="signupinput" type="text"
                     required />
-                    <span className="singupspan">Nombre</span><i className="singupi"></i>
+                    <span className="signupspan">Nombre</span><i className="signupi"></i>
                 </div>
 
-                <div className="singupinputBox">
-                    <input className="singupinput" type="email"
+                <div className="signupinputBox">
+                    <input className="signupinput" type="email"
                     required />
-                    <span className="singupspan">E-mail</span><i className="singupi"></i>
+                    <span className="signupspan">E-mail</span><i className="signupi"></i>
                 </div>
 
-                <div class="singupinputBox">
-                    <input className="singupinput" type="password"
+                <div class="signupinputBox">
+                    <input className="signupinput" type="password"
                     required />
-                    <span className="singupspan">Contraseña</span><i className="singupi"></i>
+                    <span className="signupspan">Contraseña</span><i className="signupi"></i>
                 </div>
 
-                    <input className="singupinput" type="submit"
+                    <input className="signupinput" type="submit"
                     value="Registrarse"/>
                     
-                <div className="singuplinks">
+                <div className="signuplinks">
                     <font size="9"> 
                         <Link className="signuplink" to="#">Ya dispones de un usuario? </Link>
                         <Link className="signuplink" to="/login">Login</Link>
