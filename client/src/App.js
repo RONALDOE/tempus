@@ -4,7 +4,7 @@ import Home from "./pages/home/Home.js";
 import Uploader from "./pages/uploader/Uploader.js";
 import Stadistics from "./pages/stadistics/Stadistics.js";
 import Nopage from "./pages/nopage/Nopage.js";
-import Login from "./pages/login/Login.js";
+import Login from "./pages/login/Login.jsx";
 import Joinus from "./pages/joinus/Joinus.js";
 import Navbar from './components/_navbar/Navbar'
 import Signup from "./pages/singup/Singup"
