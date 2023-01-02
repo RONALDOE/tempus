@@ -15,7 +15,7 @@ export default class Login extends Component {
                     <span className="loginspan">Nombre</span><i className="logini"></i>
                 </div>
 
-                <div class="logininputBox">
+                <div className="logininputBox">
                     <input className="logininput" type="password" required />
                     <span className="loginspan">Contraseña</span><i className="logini"></i>
                 </div>

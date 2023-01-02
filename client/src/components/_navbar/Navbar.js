@@ -19,7 +19,7 @@ const Navbar = () => {
                         <li><a href='#root'>Inicio</a></li>                        
                         <li><a href="#servicescontainer">Sevicios</a></li>
                         <li><a href="#ourteambody">Nosotros</a></li>
-                        <li><a href="google.com">Contactanos</a></li>
+                        <li><Link to ="/upload">Uploader</Link></li>
                         <li><Link to='/login' id='loginButton'>Ingresar</Link></li>
 
                         </ul>
