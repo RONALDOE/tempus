@@ -1,21 +1,11 @@
-require('dotenv').config();
-const express = require('express');
+const express = require("express")
+const cors = require("cors")
+
 const app = express();
-const cookieParser = require('cookie-parser');
-const port = 8080;
-const cors = require('cors');
 
-app.listen(
-    port, () => {
-        console.log(`Escuchando en http://localhost:${port}`);
-    }
-);
+const employees = require("./routes/Employees.route")
+app.use("/employees", employees)
 
-app.use(cors({origin:"*"}));
-app.use(express.json());
-app.use(express.static(__dirname + '/public'));
-app.use(cookieParser());
-app.use(express.urlencoded({extended: true}));
-
-const routes = require('./routes/routes.js');
-app.use('/api/v1',routes);
+app.listen(8000,() =>{
+    console.log("Backend Funcionando")
+})
