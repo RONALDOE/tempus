@@ -20,7 +20,7 @@ _idUser INT AUTO_INCREMENT,
 _userName VARCHAR(35) NOT NULL UNIQUE,
 _password VARCHAR(255) NOT NULL,
 _idEmployee INT NOT NULL,
-_idClient INT NOT NULL,
+_idCustomer INT NOT NULL,
 PRIMARY KEY (_idUser),
 FOREIGN KEY (_idEmployee) REFERENCES Employees(_idEmployee)
 );
@@ -47,7 +47,7 @@ _idProyect INT AUTO_INCREMENT,
 _proyectName VARCHAR(35) NOT NULL,
 _proyectDescription VARCHAR(255) NOT NULL,
 _startDate DATETIME NOT NULL,
-_deliveryDate DATETIME NOT NULL,
+_proyectDeadline DATETIME NOT NULL,
 _finishDate DATETIME,
 _proyectImage BLOB,
 PRIMARY KEY (_idProyect)
