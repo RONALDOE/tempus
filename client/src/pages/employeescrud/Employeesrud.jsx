@@ -1,18 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import "../../css/crudtable.css";
-import ModalEmployee from "../../components/modalswindows/ModalEmployee";
 
 function Usertable() {
-    //Ventana Modal
-    const [showModal, setShowModal] = useState(false);
-const [employeeName, setEmployeeName] = useState("");
-const [employeeLastName, setEmployeeLastName] = useState("");
-const [employeeIdNumber, setEmployeeIdNumber] = useState("");
-const [employeeCellphone, setEmployeeCellphone] = useState("");
-const [employeeEmail, setEmployeeEmail] = useState("");
-
-
+  //Ventana Modal
 
   //Tomar datos de la base de datos
 
@@ -27,23 +19,8 @@ const [employeeEmail, setEmployeeEmail] = useState("");
     fetchData();
   }, []);
 
-  async function handleCreate(employee) {
-    const res = await axios.post("http://localhost:8000/employees", employee);
-    setEmployees([...employees, res.data]);
-  }
-
   async function handleUpdate(employee) {
-    const response = await axios.put(
-      `http://localhost:8000/employees/${employee.id}`,
-      employee
-    );
-    const updatedEmployees = employees.map((r) => {
-      if (r.id === employee.id) {
-        return response.data;
-      }
-      return r;
-    });
-    setEmployees(updatedEmployees);
+    
   }
 
   async function handleDelete(id) {
@@ -83,45 +60,28 @@ const [employeeEmail, setEmployeeEmail] = useState("");
   //Buscar los datos
   const [searchTerm, setSearchTerm] = useState("");
 
-  const handleSearched = event => {
-      setSearchTerm(event.target.value);
-      
-    
+  const handleSearched = (event) => {
+    setSearchTerm(event.target.value);
   };
 
   const filteredData = employees.filter((row) => {
-    
     return (
       row._name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       row._lastName.toLowerCase().includes(searchTerm.toLowerCase()) ||
       row._email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      row._idEmployee.toString().includes(searchTerm)||
+      row._idEmployee.toString().includes(searchTerm) ||
       row._idNumber.toString().includes(searchTerm)
-
     );
   });
 
-
-
-
-
-
-
   return (
     <>
-      
       <div className="crudContainer">
-        <button
-          className="createButton"
-          onClick={() => setShowModal(true)}
-        >
-            {showModal ? (
-  <div className="modal">
-    {/* Contenido de la modal aquí */}
-  </div>
-) : null}
-          <i class="fa-solid fa-circle-plus fa-xl" /> Create
-        </button>
+        <Link to="/employees/new">
+          <button className="createButton">
+            <i class="fa-solid fa-circle-plus fa-xl" /> Create
+          </button>
+        </Link>
         <input
           type="text"
           name="search"
@@ -130,7 +90,7 @@ const [employeeEmail, setEmployeeEmail] = useState("");
           ref={elementRef}
           disabled={isDisabled}
           value={searchTerm}
-        onChange={handleSearched}
+          onChange={handleSearched}
         />
 
         <i
@@ -151,40 +111,43 @@ const [employeeEmail, setEmployeeEmail] = useState("");
               </tr>
             </thead>
             <tbody>
-              { filteredData.length === 0
-                ? (
-                  <tr>
-                    <td className="noDataCell" colSpan={7}>No data</td>
-
-                  </tr>
-                )
-                : filteredData.map((employee) => (
-                <tr key={employee._idEmployee}>
-                  <td >{employee._idEmployee ? employee._idEmployee : 'no data' }</td>
-                  <td >{employee._name? employee._name : 'nodata'  }</td>
-                  <td >{employee._lastName}</td>
-                  <td >{employee._idNumber}</td>
-                  <td >{employee._cellphone}</td>
-                  <td >{employee._email}</td>
-
-                  <td>
-                    <button
-                      className="crudButton edit"
-                      onClick={() => handleUpdate(employee)}
-                    >
-                      <i class="fa-solid fa-pen-to-square fa-xl" />
-                      Edit
-                    </button>
-                    <button
-                      className="crudButton delete"
-                      onClick={() => handleDelete(employee._idEmployee)}
-                    >
-                      <i class="fa-solid fa-trash fa-xl" />
-                      Delete
-                    </button>
+              {filteredData.length === 0 ? (
+                <tr>
+                  <td className="noDataCell" colSpan={7}>
+                    No data
                   </td>
                 </tr>
-              ))}
+              ) : (
+                filteredData.map((employee) => (
+                  <tr key={employee._idEmployee}>
+                    <td>
+                      {employee._idEmployee ? employee._idEmployee : "no data"}
+                    </td>
+                    <td>{employee._name ? employee._name : "nodata"}</td>
+                    <td>{employee._lastName}</td>
+                    <td>{employee._idNumber}</td>
+                    <td>{employee._cellphone}</td>
+                    <td>{employee._email}</td>
+
+                    <td>
+                      <Link to={`/employees/${employee._idEmployee}`}>
+                      <button
+                        className="crudButton edit">
+                        <i class="fa-solid fa-pen-to-square fa-xl" />
+                        Edit
+                      </button>
+                      </Link>
+                      <button
+                        className="crudButton delete"
+                        onClick={() => handleDelete(employee._idEmployee)}
+                      >
+                        <i class="fa-solid fa-trash fa-xl" />
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </div>

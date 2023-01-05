@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react'
 import '../../css/sidebar.css'
+import { Allheader } from "../_allheader/Allheader";
 
+import { useLocation } from 'react-router-dom'; 
 
 const  Sidebar = () =>  {
   
@@ -17,12 +19,20 @@ const  Sidebar = () =>  {
      else elementRef.current.classList.remove('open')
 };
 
+  
+const location = useLocation();
+
+if (location.pathname === '/login' || location.pathname === '/') {
+  return null;
+}
           
   
     return (
    
 
       <>
+      <Allheader/>
+
        <div className={`sidebar `} ref={elementRef} id='sidebar'>
     <div className="logo-details">
       <i className={`bx icon`} id="sidebarLogo" ></i> 
