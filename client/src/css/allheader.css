@@ -1,0 +1,15 @@
+.allheader{
+    width: 100%;
+    height: 10vh;
+    border: 2px solid black;
+    background-color: var(--black1);
+    align-items: center;
+
+}
+
+.allheader > p {
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+}

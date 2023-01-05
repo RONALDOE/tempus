@@ -23,8 +23,7 @@ router.get("/", (req, res) => {
   
   router.post("/", (req, res) => {
     const values = [
-      req.body._firstName,
-      req.body._secondName,
+      req.body._name,
       req.body._lastName,
       parseInt(req.body._idNumber,10),
       req.body._cellphone,
@@ -41,8 +40,7 @@ router.get("/", (req, res) => {
   router.put("/:id", (req, res) => {
     const id = req.params.id;
     const values = [
-      req.body._firstName,
-      req.body._secondName,
+      req.body._name,
       req.body._lastName,
       parseInt(req.body._idNumber,10),
       req.body._cellphone,

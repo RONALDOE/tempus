@@ -1,0 +1,131 @@
+table {
+    border-collapse: collapse;
+  
+  }
+  
+.table-container{
+  width: 100%;
+  height: inherit;
+  overflow:scroll; 
+  position: relative;
+}
+
+th{
+  border: 1px solid #dddddd;
+  padding: 8px;
+  border-top: 1.5px solid var(--black1);
+}
+th:nth-child(1){
+  border-left: 1px solid var(--black1) !important
+} 
+td:nth-child(1){
+  border-left: 1px solid var(--black1) !important
+} 
+th:nth-last-child(1){
+  border-right : 1px solid var(--black1) !important
+
+}
+
+td:nth-last-child(1){
+  border-right : 1px solid var(--black1) !important
+
+}
+
+  
+  td {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+    
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+    
+  }
+
+  tr:nth-child(even) > td{
+    border: 1px solid white;
+  }
+  
+  .crudButton {
+    border: 1px solid ;
+    width: 6rem;
+    margin-right: 3px ;
+    margin-bottom: 2px ;
+    border-radius: 4px;
+    color: var(--black1);
+    font-weight: 1000;
+    cursor: pointer;
+    padding: 8px 12px;
+    font-size: 13px;
+
+
+  }
+  .delete{
+    background-color: rgb(233, 41, 41);
+  }
+  .edit{
+    background-color: var(--accent);
+  }
+  
+  .crudButton:hover, .createButton:hover {
+    background-color: #dddddd;
+    cursor: pointer;
+  }
+
+
+  .crudContainer{
+    width: 150vh;
+    height: 70vh;
+    left: 15%;
+    position: fixed;
+    margin: 3rem;
+
+
+  }
+
+  .createButton{
+    width: 10rem;
+    height: 2.5rem;
+    margin: 5px;
+    border-radius: 4px;
+    border-style: hidden;
+    background-color: rgb(35, 245, 35);
+    color: var(--black1);
+    font-weight: 1000;
+  }
+
+  .crudSearch{
+    width: 3rem;
+    height: 2.5rem;
+    margin: 5px;
+    border-radius: 4px;
+    border-style: hidden;
+    font-weight: 1000;
+    background-color: gainsboro;
+    transition: all 0.5s ease;
+    
+
+
+  }
+
+  .inSearch{
+    width:25rem;
+    border-style: solid;
+    border-color: var(--black1);
+  }
+
+
+  .searchIcon{
+    transform: translatex(-170%);
+    cursor: pointer;
+
+    
+  }
+
+  .noDataCell {
+    width: 150vh; /* Ancho del mismo tamaño que las celdas de la tabla */
+  height: 100%; /* Alto del mismo tamaño que las celdas de la tabla */
+  text-align: center;
+  }

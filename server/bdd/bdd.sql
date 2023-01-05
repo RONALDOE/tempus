@@ -6,8 +6,7 @@ USE tempus;
 
 CREATE TABLE Employees(
 _idEmployee INT AUTO_INCREMENT,
-_firstName VARCHAR(35) NOT NULL,
-_secondName VARCHAR(35) NULL,
+_name VARCHAR(35) NOT NULL,
 _lastName VARCHAR(70) NOT NULL,
 _idNumber VARCHAR(15) NOT NULL UNIQUE,
 _cellphone VARCHAR(15) NOT NULL UNIQUE,

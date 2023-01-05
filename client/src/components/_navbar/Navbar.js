@@ -1,6 +1,6 @@
 import React from 'react'
 import '../../css/navbar.css'
-import { Link, Outlet } from "react-router-dom"
+import { Link } from "react-router-dom"
 import user from '../../assets/user.png'
 const Navbar = () => {
 
@@ -26,7 +26,6 @@ const Navbar = () => {
                 </label>
             </div>
         </nav>
-<Outlet/>
 
       </>
       
