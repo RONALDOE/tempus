@@ -8,7 +8,7 @@ import Login from "./pages/login/Login.jsx";
 import Joinus from "./pages/joinus/Joinus.js";
 import Signup from "./pages/singup/Singup"
 import Employeescrud from "./pages/employeescrud/Employeesrud";
-import Dashboard from "./pages/dashboard/Dashboard"
+import Dashboard from "./pages/dashboarduser/Dashboarduser"
 import Sidebar from "./components/_sidebar/Sidebar";
 import NewEmployee from './pages/inserters/NewEmployee'
 import UpdateEmployee from './pages/updaters/EditEmployee'
@@ -22,7 +22,7 @@ export default function App() {
       <Routes>
         <Route index element={<Mainpage showOut/>}/>
           <Route index element={<Home />} />
-          <Route path="/" element={<Dashboard/>}/>
+          <Route path="dashboard" element={<Dashboard/>}/>
           <Route path="upload" element={<Uploader />} />
           <Route path="signup" element={<Signup />} />
           <Route path="stadistics" element={<Stadistics/>} />

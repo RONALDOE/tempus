@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import '../../css/sidebar.css'
-import { Allheader } from "../_allheader/Allheader";
+
 
 import { useLocation } from 'react-router-dom'; 
 
@@ -31,7 +31,6 @@ if (location.pathname === '/login' || location.pathname === '/') {
    
 
       <>
-      <Allheader/>
 
        <div className={`sidebar `} ref={elementRef} id='sidebar'>
     <div className="logo-details">

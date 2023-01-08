@@ -54,6 +54,7 @@ PRIMARY KEY (_idProyect)
 
 CREATE TABLE Tasks (
   _idTask INT AUTO_INCREMENT,
+  _taskName VARCHAR(255) NOT NULL,
   _taskDescription VARCHAR(255) NOT NULL,
   _taskDeadline DATETIME NOT NULL,
   _taskStatus VARCHAR(50) NOT NULL,

@@ -1,4 +1,4 @@
-table {
+.crudTable  {
     border-collapse: collapse;
   
   }
@@ -8,43 +8,44 @@ table {
   height: inherit;
   overflow:scroll; 
   position: relative;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-th{
+.th{
   border: 1px solid #dddddd;
   padding: 8px;
   border-top: 1.5px solid var(--black1);
 }
-th:nth-child(1){
+.th:nth-child(1){
   border-left: 1px solid var(--black1) !important
 } 
-td:nth-child(1){
+.td:nth-child(1){
   border-left: 1px solid var(--black1) !important
 } 
-th:nth-last-child(1){
+.th:nth-last-child(1){
   border-right : 1px solid var(--black1) !important
 
 }
 
-td:nth-last-child(1){
+.td:nth-last-child(1){
   border-right : 1px solid var(--black1) !important
 
 }
 
   
-  td {
+  .td {
     border: 1px solid #dddddd;
     text-align: center;
     padding: 8px;
     
   }
   
-  tr:nth-child(even) {
+  .tr:nth-child(even) {
     background-color: #dddddd;
     
   }
 
-  tr:nth-child(even) > td{
+  .tr:nth-child(even) > td{
     border: 1px solid white;
   }
   
@@ -73,6 +74,8 @@ td:nth-last-child(1){
     background-color: #dddddd;
     cursor: pointer;
   }
+
+  
 
 
   .crudContainer{

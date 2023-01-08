@@ -112,24 +112,24 @@ function Usertable() {
             </thead>
             <tbody>
               {filteredData.length === 0 ? (
-                <tr>
-                  <td className="noDataCell" colSpan={7}>
+                <tr className="tr">
+                  <td className=" td noDataCell" colSpan={7}>
                     No data
                   </td>
                 </tr>
               ) : (
                 filteredData.map((employee) => (
-                  <tr key={employee._idEmployee}>
-                    <td>
+                  <tr className="tr" key={employee._idEmployee}>
+                    <td className="td">
                       {employee._idEmployee ? employee._idEmployee : "no data"}
                     </td>
-                    <td>{employee._name ? employee._name : "nodata"}</td>
-                    <td>{employee._lastName}</td>
-                    <td>{employee._idNumber}</td>
-                    <td>{employee._cellphone}</td>
-                    <td>{employee._email}</td>
+                    <td className="td">{employee._name ? employee._name : "nodata"}</td>
+                    <td className="td">{employee._lastName}</td>
+                    <td className="td">{employee._idNumber}</td>
+                    <td className="td">{employee._cellphone}</td>
+                    <td className="td">{employee._email}</td>
 
-                    <td>
+                    <td className="td">
                       <Link to={`/employees/${employee._idEmployee}`}>
                       <button
                         className="crudButton edit">
