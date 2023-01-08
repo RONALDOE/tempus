@@ -19,9 +19,7 @@ function Usertable() {
     fetchData();
   }, []);
 
-  async function handleUpdate(employee) {
-    
-  }
+  
 
   async function handleDelete(id) {
     try {

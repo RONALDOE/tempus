@@ -1,4 +1,6 @@
 import React, { useRef, useState } from 'react'
+import { useNavigate } from "react-router-dom";
+
 import '../../css/sidebar.css'
 
 
@@ -6,12 +8,16 @@ import { useLocation } from 'react-router-dom';
 
 const  Sidebar = () =>  {
   
-  
+  const navigate = useNavigate();
 
   const elementRef = useRef(null);
 
+  const handleLogout = () => {
+    localStorage.removeItem("jwt");
+    navigate('/')
+  
+  };
 
-  const userLogout = () =>{console.log("exit")}
 
   const handleClick = () => {
   if(!elementRef.current.classList.contains('open')){
@@ -97,7 +103,10 @@ if (location.pathname === '/login' || location.pathname === '/') {
              <div className="job">Web designer</div>
            </div>
          </div>
-         <i className='bx bx-log-out' id="log_out" onClick={userLogout}></i>
+         <button onClick={handleLogout}>
+
+         <i className='bx bx-log-out' id="log_out" />
+         </button>
      </li>
     </ul>
   </div>
