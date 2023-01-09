@@ -16,7 +16,7 @@
     padding: 15px;
     width: 100%;
     min-height: 100vh;
-    background: #5956E9;
+    background: var(--accent);
 }
 
 .uploader_box{
@@ -32,7 +32,7 @@
 }
 
 .uploader_upload-are-title{
-    color: #5956E9;
+    color: var(--accent);
     text-align: center;
     margin-bottom: 20px;
     font-size: 20px;
@@ -46,17 +46,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 3px dashed #5956E9;
+    border: 3px dashed var(--accent);
     cursor: pointer;
 }
 
 .uploader_uploadlabel span{
     font-size: 70px;
-    color: #5956E9;
+    color: var(--accent);
 }
 
 .uploader_uploadlabel p{
-    color: #5956E9;
+    color: var(--accent);
     font-size: 20px;
     font-weight: 800;
     font-family: cursive;
@@ -87,7 +87,7 @@
 }
 
 .uploader_filetype{
-    background: #5956E9;
+    background: var(--accent);
     color: #ffff;
     padding: 5px 15px;
     font-size: 20px;
@@ -108,7 +108,7 @@
 }
 
 .uploader_right span{
-    background: #5956E9;
+    background: var(--accent);
     color: #ffff;
     width: 25px;
     height: 25px;
