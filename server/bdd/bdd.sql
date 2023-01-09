@@ -156,3 +156,52 @@ _lastUpdate DATETIME NOT NULL,
 PRIMARY KEY (_idPayment),
 FOREIGN KEY (_idPaymentMethod) REFERENCES Payment_Methods(_idPaymentMethod)
 );
+
+use tempus;
+INSERT INTO Employees (_name, _lastName, _idNumber, _cellphone, _email) VALUES
+('Juan', 'Pérez', '1234567890', '1234567890', 'juan@example.com'),
+('María', 'Rodríguez', '0987654321', '0987654321', 'maria@example.com');
+
+INSERT INTO Users (_userName, _password, _idEmployee, _idCustomer) VALUES
+('juan', 'password123', 1, 1),
+('maria', 'password456', 2, 2);
+
+INSERT INTO Roles (_roleName, _roleDescription) VALUES
+('Administrador', 'Tiene acceso a todas las funciones del sistema'),
+('Empleado', 'Tiene acceso limitado a ciertas funciones del sistema');
+
+INSERT INTO Billing_Plans (_planType, _pricePerMonth, _pricePerYear, _storage, _maxAccountsNumber, _maxGroupsNumber) VALUES
+('Básico', 10.99, 99.99, '1GB', 5, 2),
+('Premium', 20.99, 199.99, '10GB', 25, 10);
+
+INSERT INTO Proyects (_proyectName, _proyectDescription, _startDate, _proyectDeadline, _finishDate, _proyectImage) VALUES
+('Proyecto 1', 'Descripción del proyecto 1', '2022-01-01', '2022-03-01', NULL, NULL),
+('Proyecto 2', 'Descripción del proyecto 2', '2022-02-01', '2022-04-01', NULL, NULL);
+
+INSERT INTO Tasks (_taskName, _taskDescription, _taskDeadline, _taskStatus) VALUES
+('Tarea 1', 'Descripción de la tarea 1', '2022-01-15', 'Pendiente'),
+('Tarea 2', 'Descripción de la tarea 2', '2022-02-15', 'Pendiente');
+
+INSERT INTO Payment_Methods (_paymentMethodName) VALUES
+('Tarjeta de crédito'),
+('PayPal');
+
+INSERT INTO User_Roles (_idUser, _idRole) VALUES
+(1, 1),
+(2, 2);
+
+INSERT INTO Customers (_selectedPlan, _emailCustomer, _cellphoneCustomer, _isEnterprise, _isProyect) VALUES
+(1, 'customer1@example.com', '1234567890', 0, 0),
+(2, 'customer2@example.com', '0987654321', 1, 1);
+
+INSERT INTO Guilds (_guildName, _guildImage, _customerManager) VALUES
+('Gremio 1', NULL, 1),
+('Gremio 2', NULL, 2);
+
+INSERT INTO WorkGroups (_groupName, _groupLeader, _groupTask) VALUES
+('Grupo 1', 1, 1),
+('Grupo 2', 2, 2);
+
+SELECT * FROM Users WHERE _userName ='juan' and _password = 'password123'
+
+
