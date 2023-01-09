@@ -8,14 +8,34 @@ const Login = () => {
   const [_password, setPassword] = useState("");
   const navigate = useNavigate()
 
+  const [status, setStatus] = useState("")
+
+  const handleStatus = (status) => {
+    switch(status){
+      case "200":
+        console.log("Login Succesfull")
+        return 'Login Succesfull';
+
+      case "401":
+        console.log("Invalid Credentials")
+        setStatus("Invalid Credentials")
+        return 'Invalid Credentials';
+        
+        default: 
+        break;
+    }
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
       .post("http://localhost:8000/login", { _userName, _password })
       .then((response) => {
+        handleStatus(response.status)
         const token = response.data.token;
         localStorage.setItem("jwt", token);
         navigate("/dashboard")
+        
       })
       .catch((error) => {
         console.error(error);
@@ -52,6 +72,7 @@ const Login = () => {
           </div>
 
           <input className="logininput" type="submit" value="Login" />
+          <h3>{status}</h3>
 
           <div className="loginlinks">
             <font size="9">

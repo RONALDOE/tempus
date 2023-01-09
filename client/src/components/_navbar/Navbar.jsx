@@ -1,7 +1,6 @@
 import React from 'react'
 import '../../css/navbar.css'
 import { Link } from "react-router-dom"
-import user from '../../assets/user.png'
 const Navbar = () => {
 
     return (
@@ -17,10 +16,10 @@ const Navbar = () => {
                 <label htmlFor="check">
                     <ul className='list'>
                         <li><a href='#root'>Inicio</a></li>                        
-                        <li><a href="#servicescontainer">Sevicios</a></li>
-                        <li><a href="#ourteambody">Nosotros</a></li>
-                        <li><Link to ="/upload">Uploader</Link></li>
-                        <li><Link to='/login' id='loginButton'>Ingresar</Link></li>
+                        <li><a href="#servicescontainer">Services</a></li>
+                        <li><a href='#pricings'>Pricing</a></li>
+                        <li><a href="#ourteambody">About Us</a></li>
+                        <li><Link to='/login' id='loginButton'>Login</Link></li>
 
                         </ul>
                 </label>

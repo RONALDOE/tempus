@@ -98,7 +98,6 @@ function NewEmployee() {
             handleSetError("Error al crear el empleado");
           }
     }
-    // Aquí puedes enviar los datos del formulario a tu backend para insertarlos en la base de datos.
   };
 
   return (

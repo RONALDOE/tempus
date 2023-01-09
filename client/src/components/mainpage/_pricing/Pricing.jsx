@@ -16,7 +16,7 @@ const Pricing = () => {
   }, []);
 
   return (
-    <div className="pricingContainer">
+    <div className="pricingContainer" id="pricings">
       <h2 className="price-heading"> Pricing </h2>
       <div className="pricing-container">
         {pricings.map((pricing) => (
