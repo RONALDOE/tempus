@@ -6,8 +6,7 @@ USE tempus;
 
 CREATE TABLE Employees(
 _idEmployee INT AUTO_INCREMENT,
-_firstName VARCHAR(35) NOT NULL,
-_secondName VARCHAR(35) NULL,
+_name VARCHAR(35) NOT NULL,
 _lastName VARCHAR(70) NOT NULL,
 _idNumber VARCHAR(15) NOT NULL UNIQUE,
 _cellphone VARCHAR(15) NOT NULL UNIQUE,
@@ -20,7 +19,7 @@ _idUser INT AUTO_INCREMENT,
 _userName VARCHAR(35) NOT NULL UNIQUE,
 _password VARCHAR(255) NOT NULL,
 _idEmployee INT NOT NULL,
-_idClient INT NOT NULL,
+_idCustomer INT NOT NULL,
 PRIMARY KEY (_idUser),
 FOREIGN KEY (_idEmployee) REFERENCES Employees(_idEmployee)
 );
@@ -47,7 +46,7 @@ _idProyect INT AUTO_INCREMENT,
 _proyectName VARCHAR(35) NOT NULL,
 _proyectDescription VARCHAR(255) NOT NULL,
 _startDate DATETIME NOT NULL,
-_deliveryDate DATETIME NOT NULL,
+_proyectDeadline DATETIME NOT NULL,
 _finishDate DATETIME,
 _proyectImage BLOB,
 PRIMARY KEY (_idProyect)
@@ -55,6 +54,7 @@ PRIMARY KEY (_idProyect)
 
 CREATE TABLE Tasks (
   _idTask INT AUTO_INCREMENT,
+  _taskName VARCHAR(255) NOT NULL,
   _taskDescription VARCHAR(255) NOT NULL,
   _taskDeadline DATETIME NOT NULL,
   _taskStatus VARCHAR(50) NOT NULL,

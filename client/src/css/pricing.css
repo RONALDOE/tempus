@@ -50,10 +50,19 @@
     list-style: none;
 }
 
-.pricing {
+.pricing-m {
     font-size: 1.5rem;
     margin: 1rem 0;
-    color: skyblue;
+    margin-bottom: 0rem;
+    color: var(--black1);
+    font-weight: bold;
+}
+
+.pricing-a {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    margin-top: 0rem;
+    color: var(--black1);
     font-weight: bold;
 }
 

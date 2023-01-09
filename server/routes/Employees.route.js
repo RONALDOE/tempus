@@ -4,64 +4,72 @@ const db = require('../config/bd.config')
 router.use(express.json())
 
 router.get("/", (req, res) => {
-    // Consulta a la base de datos para obtener a todos los empleados
     db.query("SELECT * FROM Employees", (error, results) => {
       if (error) return res.json(error);
   
-      // Envía la respuesta con los resultados de la consulta
       return res.json(results);
     });
   });
   
   router.get("/:id", (req, res) => {
-    // Obtiene el ID del empleado desde la ruta
     const id = req.params.id;
   
-    // Consulta a la base de datos para obtener al empleado con el ID especificado
     db.query("SELECT * FROM Employees WHERE _idEmployee = ?", id, (error, results) => {
         if (error) return res.json(error);
   
-      // Envía la respuesta con los resultados de la consulta
       return res.json(results[0]);
     });
   });
   
   router.post("/", (req, res) => {
-    // Obtiene los datos del empleado desde el cuerpo de la solicitud
-    const employee = req.body;
+    const values = [
+      req.body._name,
+      req.body._lastName,
+      req.body._idNumber,
+      req.body._cellphone,
+      req.body._email
+    ];
+    const query = `SELECT * FROM Employees WHERE _idNumber = ? OR _email = ?`;
+    db.query(query, [values._idNumber, values._email], (error, results) => {
+      if (error) {
+        // Si hay un error al ejecutar la consulta, devolver un código de estado 500 (Internal Server Error)
+        return res.status(500).send("Error al verificar si el empleado ya existe");
+      }
+      if (results.length > 0) {
+        // Si la consulta devuelve resultados, significa que el empleado ya existe
+        return res.status(400).send("El empleado ya existe");
+      }})
   
-    // Inserción del empleado en la base de datos
-    db.query("INSERT INTO Employees SET ?", employee, (error, results) => {
+    db.query("INSERT INTO Employees(_name, _lastName, _idNumber, _cellphone, _email) VALUES (?)", [values], (error, results) => {
         if (error) return res.json(error);
   
-      // Envía la respuesta con los resultados de la consulta
       return res.json(results);
     });
   });
   
   router.put("/:id", (req, res) => {
-    // Obtiene el ID del empleado y los datos actualizados desde la ruta y el cuerpo de la solicitud, respectivamente
     const id = req.params.id;
-    const employee = req.body;
+    const values = [
+      req.body._name,
+      req.body._lastName,
+      parseInt(req.body._idNumber,10),
+      req.body._cellphone,
+      req.body._email
+    ];
   
-    // Actualiza al empleado en la base de datos
-    db.query("UPDATE Employees SET ? WHERE _idEmployee = ?", [employee, id], (error, results) => {
+    db.query("UPDATE Employees SET _firstName = ?, _secondName = ?, _lastName = ?, _idNumber = ?, _cellphone = ?, _email = ? WHERE _idEmployee = ?", [values, id], (error, results) => {
         if (error) return res.json(error);
   
-      // Envía la respuesta con los resultados de la consulta
       return res.json(results);
     });
   });
   
   router.delete("/:id", (req, res) => {
-    // Obtiene el ID del empleado desde la ruta
     const id = req.params.id;
   
-    // Elimina al empleado de la base de datos
     db.query("DELETE FROM Employees WHERE _idEmployee = ?", id, (error, results) => {
       if (error) return res.json(error);
 
-      // Envía la respuesta con los resultados de la consulta
       return res.json(results);
     });
   });
