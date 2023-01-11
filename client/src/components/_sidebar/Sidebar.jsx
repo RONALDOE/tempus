@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react'
-import { useNavigate } from "react-router-dom";
+import React, { useRef} from 'react'
+import { useNavigate, Link } from "react-router-dom";
 
 import '../../css/sidebar.css'
 
@@ -47,18 +47,18 @@ if (location.pathname === '/login' || location.pathname === '/') {
     <ul className="nav-list">
       
       <li>
-        <a href="#">
+        <Link to="/dashboard" >
           <i className='bx bx-grid-alt' ></i>
           <span className="links_name">Dashboard</span>
-        </a>
+        </Link>
          <span className="tooltip">Dashboard</span>
       </li>
       <li>
-       <a href="#">
-         <i className='bx bx-user' ></i>
-         <span className="links_name">User</span>
-       </a>
-       <span className="tooltip">User</span>
+       <Link to="/employees">
+         <i className='bx bx-id-card' ></i>
+         <span className="links_name">Employees</span>
+       </Link>
+       <span className="tooltip">Employees</span>
      </li>
      <li>
        <a href="#">

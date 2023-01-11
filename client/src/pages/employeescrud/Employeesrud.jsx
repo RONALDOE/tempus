@@ -24,6 +24,7 @@ function Usertable() {
   async function handleDelete(id) {
     try {
       await axios.delete("http://localhost:8000/employees/" + id);
+      console.log("si")
       window.location.reload();
     } catch (error) {
       console.log(error);
@@ -118,7 +119,7 @@ function Usertable() {
               ) : (
                 filteredData.map((employee) => (
                   <tr className="tr" key={employee._idEmployee}>
-                    <td className="td">
+                    <td className="td" style={{visible:"none"}}>
                       {employee._idEmployee ? employee._idEmployee : "no data"}
                     </td>
                     <td className="td">{employee._name ? employee._name : "nodata"}</td>

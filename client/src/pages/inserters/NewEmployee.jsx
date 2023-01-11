@@ -82,7 +82,7 @@ function NewEmployee() {
     
     checkUserErrors()
 
-    if(existsErrors !==0){
+    if(existsErrors ===0){
       
       return setError("Some fields may need changes")
     }

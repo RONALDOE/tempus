@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import "../../css/dashboarduser.css";
 import userDefaultImage from "../../assets/user.png";
 import {Link} from "react-router-dom"
-import filesupload from "../../assets/filesupload.jpg"
+import filesupload from "../../assets/filesupload.png"
 
 export default function Dashboard() {
 
@@ -24,7 +24,7 @@ export default function Dashboard() {
           <div className="dashicon" id="uploadIcon" />
           <h4 className="dashTitle">Uploader</h4>
           <Link to="/upload">
-          <img className="imageDash"  src={''}  alt="" />
+          <img className="imageDash"  src={filesupload}  alt="" />
           </Link> 
         </div>
         <div className="topCard" >

@@ -1,0 +1,27 @@
+@keyframes spin {
+    from { 
+        transform: rotate(0deg);
+}
+    to {
+        transform: rotate(360deg);
+}
+  }
+  
+ 
+
+  .spinner {
+    position:absolute;
+    width: 30vw;
+    height: 30vh;
+    top: 35%;
+    left: 35%;
+   background-image: url('../assets/Logos/logo.png');
+   background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    animation-name: spin;
+    animation-duration: 4s;
+    animation-delay: 0ms;
+    animation-iteration-count:infinite;
+  }

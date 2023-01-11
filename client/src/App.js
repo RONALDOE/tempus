@@ -1,4 +1,5 @@
 import { Routes, Route} from "react-router-dom";
+import React, { useState, useEffect } from 'react';
 import Mainpage from "./pages/mainpage/Mainpage";
 import Home from "./pages/home/Home.js";
 import Uploader from "./pages/uploader/Uploader.js";
@@ -12,9 +13,24 @@ import Dashboard from "./pages/dashboarduser/Dashboarduser"
 import Sidebar from "./components/_sidebar/Sidebar";
 import NewEmployee from './pages/inserters/NewEmployee'
 import UpdateEmployee from './pages/updaters/EditEmployee'
-
+import LoadingScreen from "./components/_loadingscreen/Loadingscreen";
 
 export default function App() {
+  const [loading, setLoading] = useState(true);
+
+  
+  useEffect(() => {
+    // Simulamos la carga de datos
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+
+
+
+  if (loading) {
+    return <LoadingScreen />;
+  } else {
   return (
     <>
 <Sidebar/>
@@ -36,4 +52,5 @@ export default function App() {
       </Routes>
       </>
   );
+  }
 }
