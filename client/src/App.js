@@ -4,7 +4,7 @@ import Mainpage from "./pages/mainpage/Mainpage";
 import Home from "./pages/home/Home.js";
 import Uploader from "./pages/uploader/Uploader.js";
 import Stadistics from "./pages/stadistics/Stadistics.js";
-import Nopage from "./pages/nopage/Nopage.js";
+import Nopage from "./pages/nopage/Nopage";
 import Login from "./pages/login/Login.jsx";
 import Joinus from "./pages/joinus/Joinus.js";
 import Signup from "./pages/singup/Singup"
@@ -14,10 +14,13 @@ import Sidebar from "./components/_sidebar/Sidebar";
 import NewEmployee from './pages/inserters/NewEmployee'
 import UpdateEmployee from './pages/updaters/EditEmployee'
 import LoadingScreen from "./components/_loadingscreen/Loadingscreen";
+  import Payments from "./components/_payments/Payments";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
 
+  // https://dev.to/coderko/paypal-integration-in-react-3a57 Para lo de paypal
+  
   
   useEffect(() => {
     // Simulamos la carga de datos
@@ -36,6 +39,7 @@ export default function App() {
 <Sidebar/>
 
       <Routes>
+          <Route path="*" element={<Nopage  showOut/>} />
         <Route index element={<Mainpage showOut/>}/>
           <Route index element={<Home />} />
           <Route path="dashboard" element={<Dashboard/>}/>
@@ -43,11 +47,11 @@ export default function App() {
           <Route path="signup" element={<Signup  showOut/>} />
           <Route path="stadistics" element={<Stadistics/>} />
           <Route path="login" element={<Login />} />
+          <Route path="pay" element={<Payments />} />
           <Route path="employees" element={<Employeescrud />} />
           <Route path="employees/new" element={<NewEmployee/>}/>
           <Route path="employees/:idEmployee" element={<UpdateEmployee/>}/>
           <Route path="joinus" element={<Joinus />} />
-          <Route path="*" element={<Nopage />} />
         
       </Routes>
       </>
