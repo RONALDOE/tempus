@@ -1,0 +1,159 @@
+@font-face {
+  font-family: "Digital-7";
+  src: url("../assets/fonts/digital-7.ttf") format("truetype");
+}
+
+.topCard,
+.middleCard,
+.bottomCard {
+  margin: 3vh 1vh 0.5vh 3vh;
+  width: 33.3333333333333333333333333333333333333333333333333vh;
+  height: 28vh;
+  border-radius: 0.5rem;
+  box-shadow: rgba(93, 93, 102, 0.2) 0px 7px 29px 0.5rem;
+  position: relative;
+}
+
+.middleCard {
+  width: 51vh;
+}
+
+.bottomCard {
+  width: 108.1vh;
+  height: 53vh;
+}
+
+.dashTitle {
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+
+.topItems,
+.middleItems,
+.bottomItems {
+  display: flex;
+  flex-direction: row;
+}
+
+.personContainer {
+  width: 170vh;
+  height: 90vh;
+  left: 17%;
+  top: 5%;
+  position: fixed;
+  margin: 0rem 1rem 1rem 1rem;
+}
+
+.personItemText {
+  text-align: center;
+  position: absolute;
+  top: 30%;
+  left: 18%;
+}
+
+.personItemText > p {
+  margin-bottom: 1rem;
+}
+
+.dashicon {
+  background-color: var(--calidAccent);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  float: right;
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+#uploadIcon {
+  background-image: url("../assets/upload.png");
+  background-position: 50%;
+  background-size: 2rem;
+  background-repeat: no-repeat;
+}
+
+#proyectIcon {
+  background-image: url("../assets/proyect.png");
+  background-position: 50%;
+  background-size: 2rem;
+  background-repeat: no-repeat;
+}
+
+.uploaded-files-table {
+  margin-top: 2rem;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.uploaded-files-table th,
+.uploaded-files-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.uploaded-files-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.uploaded-files-table tr:hover {
+  background-color: #ddd;
+}
+
+.uploaded-files-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: transparent;
+  color: var(--black1);
+  text-align: center;
+}
+
+.rightColumn {
+  position: relative;
+  left: 64%;
+  top: 1%;
+  margin: 3rem;
+  width: 50vh;
+  height: 84.4vh;
+}
+
+.personCard {
+  margin-left: -2vh;
+  position: fixed;
+  top: 8.001%;
+  width: 25vw;
+  height: 84.5vh;
+  border-radius: 0.5rem;
+  box-shadow: rgba(93, 93, 102, 0.2) 0px 7px 29px 0.5rem;
+}
+
+.userPic {
+  position:relative;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -15%);
+  
+  width: 6.5rem !important;
+  height: 6.5rem !important;
+  border-radius: 50%;
+  background-color: var(--calidAccent);
+  padding: 1rem;
+  margin-bottom: 2rem;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: contain;
+}
+
+.personCard > p,
+.personCard > h3 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.imageDash {
+  width: 10rem;
+  height: 5rem;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  margin: 1rem 0.5rem 0rem 0.5rem;
+}
