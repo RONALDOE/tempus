@@ -1,21 +1,96 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import "../../css/dashboarduser.css";
 import userDefaultImage from "../../assets/user.png";
 import {Link} from "react-router-dom"
 import filesupload from "../../assets/filesupload.png"
+import { useUserContext } from '../../contexts/UserContext';
+import axios from "axios";
+import LoadingScreen from "../../components/_loadingscreen/Loadingscreen";
+import moment from 'moment'
+import Moment from 'react-moment';
+
 
 export default function Dashboard() {
 
-  const [time, setTime] = useState(new Date());
+  const [user, setUser] = useUserContext();
 
+  const [employee, setEmployee] = useState([])
+  const [proyect, setProyect] = useState([])
+ 
+  useEffect(() =>{
+
+    async function fetchEmplooyeData(id){
+      const res = await axios.get(`http://localhost:8000/employees/${id}`)
+      console.table(res.data)
+      
+      setEmployee(res.data)
+    }
+    fetchEmplooyeData(user._idEmployee)
+  }, [])
+
+
+  useEffect(() =>{
+    async function fetchProyectData(id){
+      const res = await axios.get(`http://localhost:8000/proyects/` + id)
+      console.table(res.data)
+      setProyect(res.data)
+    }
+    fetchProyectData(user._idProyect)
+  }, [])
+
+
+  const [userTask, setUserTask] =useState([])
+
+  useEffect(()=>{
+    async function fetchTaskData(id){
+      const res = await axios.get(`http://localhost:8000/tasks/user/${id}`)
+
+      setUserTask(res.data)
+      console.log(res.data._taskDeadline)
+    }
+    fetchTaskData(user._idEmployee)
+  }, [])
+
+ 
+  const [time, setTime] = useState(new Date());
+  
   useEffect(() => {
     const interval = setInterval(() => {
       setTime(new Date());
     }, 1);
+    
   
     return () => clearInterval(interval);
   }, []);
+  
+  const [loading, setLoading] = useState(true);
 
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
+  
+  const [taskTime, setTaskTime] = useState({})
+
+  useEffect(()=>{
+
+    const taskDeadline = () =>{
+      const dateToFormat = userTask._taskDeadline
+      
+      const momentDate = moment(dateToFormat)
+      const formattedDate = momentDate.format('DD/MM/YYYY')
+      console.log(formattedDate)
+      setTaskTime(formattedDate)
+      return(formattedDate)
+    }
+    taskDeadline()
+  }, [])
+
+  if (loading) {
+    return <LoadingScreen />;
+  } else {
   return (
     <div className="dashboardContainer">
       <div className="topItems">
@@ -41,8 +116,8 @@ export default function Dashboard() {
           <h4 className="dashTitle">Tasks</h4>
           <span className="dashItemText">
             <p>Upcoming Task</p>
-            <p>{"taskName"}</p>
-            <p>{"taskDeadline"}</p>
+            <p>{userTask._taskName}</p>
+            <p><Moment format="dddd, MMMM Do YYYY">{userTask._taskDeadline}</Moment></p>
           </span>
         </div>
       </div>
@@ -78,15 +153,16 @@ export default function Dashboard() {
           />
 
           <p style={{ marginTop: ".3rem", marginBottom: "1rem" }}>
-            {"Username"}
+            {user._userName}
           </p>
           <h3>Email</h3>
-          <p id="useremail">{"Email"}</p>
+          <p id="useremail">{employee._email}</p>
           <h3>Proyect</h3>
-          <p id="userproyect">{"Proyect"}</p>
+          <p id="userproyect">{proyect._proyectName}  </p>
         </div>
       </div>
 
     </div>
   );
+}
 }

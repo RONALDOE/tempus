@@ -21,7 +21,7 @@ router.post('/', (req, res) => {
     if (results.length > 0) {
 
         const token = jwt.sign({ _userName}, 'secretkey');
-      res.json({ token });
+      res.json({ token, results });
     } else {
       res.sendStatus(401);
     }

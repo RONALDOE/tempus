@@ -17,24 +17,26 @@ import UpdateEmployee from "./pages/updaters/EditEmployee";
 import LoadingScreen from "./components/_loadingscreen/Loadingscreen";
 import  {Personpage}  from './pages/personPage/Personpage';
 import ReactPayPal from "./components/_paypal/ReactPaypal";
+import { Provider } from './contexts/UserContext.js';
 
 export default function App() {
   const [loading, setLoading] = useState(true);
 
-  // https://dev.to/coderko/paypal-integration-in-react-3a57 Para lo de paypal
 
   useEffect(() => {
-    // Simulamos la carga de datos
     setTimeout(() => {
       setLoading(false);
     }, 1000);
   }, []);
+  
 
   if (loading) {
     return <LoadingScreen />;
   } else {
     return (
       <>
+      <Provider>
+
         <Sidebar />
 
         <Routes>
@@ -54,6 +56,7 @@ export default function App() {
           <Route path="joinus" element={<Joinus />} />
           <Route path="user/:idUser" element={<Personpage/>} />
         </Routes>
+      </Provider>
       </>
     );
   }

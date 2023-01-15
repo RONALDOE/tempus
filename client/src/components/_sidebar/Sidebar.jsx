@@ -1,5 +1,6 @@
-import React, { useRef} from 'react'
+import React, { useRef, useEffect, useState} from 'react'
 import { useNavigate, Link } from "react-router-dom";
+import LoadingScreen from '../_loadingscreen/Loadingscreen';
 
 import '../../css/sidebar.css'
 
@@ -28,9 +29,24 @@ const  Sidebar = () =>  {
   
 const location = useLocation();
 
+const [loading, setLoading] = useState(true);
+
+
+useEffect(() => {
+  setTimeout(() => {
+    setLoading(false);
+  }, 1000);
+}, []);
+
+
+if (loading) {
+  return <LoadingScreen />;
+} else {
 if (location.pathname === '/login' || location.pathname === '/' || location.pathname === '/pay/1'|| location.pathname === '/pay/2'|| location.pathname === '/pay/3' ) {
   return null;
 }
+
+
           
   
     return (
@@ -114,5 +130,5 @@ if (location.pathname === '/login' || location.pathname === '/' || location.path
   </>
     )
   }
-
+}
   export default Sidebar

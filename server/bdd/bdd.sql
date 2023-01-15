@@ -20,6 +20,7 @@ _userName VARCHAR(35) NOT NULL UNIQUE,
 _password VARCHAR(255) NOT NULL,
 _idEmployee INT NOT NULL,
 _idCustomer INT NOT NULL,
+_idProyect INT NULL,
 PRIMARY KEY (_idUser),
 FOREIGN KEY (_idEmployee) REFERENCES Employees(_idEmployee)
 );
@@ -59,7 +60,7 @@ CREATE TABLE Tasks (
   _taskDescription VARCHAR(255) NOT NULL,
   _taskDeadline DATETIME NOT NULL,
   _taskStatus VARCHAR(50) NOT NULL,
-  _designatedEmployee INT NOT NULL,
+  _designatedEmployee INT NULL,
   PRIMARY KEY (_idTask),
   FOREIGN KEY (_designatedEmployee) REFERENCES Employees(_idEmployee)
 
@@ -92,6 +93,7 @@ FOREIGN KEY (_selectedPlan) REFERENCES Billing_Plans(_idPlan)
 
 );
 
+SELECT * FROM TASKS
 #GREMIOS
 CREATE TABLE Guilds(
 _idGuild INT AUTO_INCREMENT,
@@ -162,29 +164,48 @@ FOREIGN KEY (_idPaymentMethod) REFERENCES Payment_Methods(_idPaymentMethod)
 );
 
 use tempus;
-INSERT INTO Employees (_name, _lastName, _idNumber, _cellphone, _email) VALUES
-('Juan', 'Pérez', '1234567890', '1234567890', 'juan@example.com'),
-('María', 'Rodríguez', '0987654321', '0987654321', 'maria@example.com');
+-- INSERT INTO Employees (_name, _lastName, _idNumber, _cellphone, _email) VALUES
+-- ('Juan', 'Pérez', '1234567890', '1234567890', 'juan@example.com'),
+-- ('María', 'Rodríguez', '0987654321', '0987654321', 'maria@example.com');
 
-INSERT INTO Users (_userName, _password, _idEmployee, _idCustomer) VALUES
-('juan', 'password123', 1, 1),
-('maria', 'password456', 2, 2);
+-- INSERT INTO Users (_userName, _password, _idEmployee, _idCustomer) VALUES
+-- ('juan', 'password123', 1, 1),
+-- ('maria', 'password456', 2, 2);
 
-INSERT INTO Roles (_roleName, _roleDescription) VALUES
-('Administrador', 'Tiene acceso a todas las funciones del sistema'),
-('Empleado', 'Tiene acceso limitado a ciertas funciones del sistema');
+-- INSERT INTO Roles (_roleName, _roleDescription) VALUES
+-- ('Administrador', 'Tiene acceso a todas las funciones del sistema'),
+-- ('Empleado', 'Tiene acceso limitado a ciertas funciones del sistema');
 
-INSERT INTO Billing_Plans (_planType, _pricePerMonth, _pricePerYear, _storage, _maxAccountsNumber, _maxGroupsNumber) VALUES
-('Básico', 10.99, 99.99, '1GB', 5, 2),
-('Premium', 20.99, 199.99, '10GB', 25, 10);
+-- INSERT INTO Billing_Plans (_planType, _pricePerMonth, _pricePerYear, _storage, _maxAccountsNumber, _maxGroupsNumber) VALUES
+-- ('Básico', 10.99, 99.99, '1GB', 5, 2),
+-- ('Premium', 20.99, 199.99, '10GB', 25, 10);
 
-INSERT INTO Proyects (_proyectName, _proyectDescription, _startDate, _proyectDeadline, _finishDate, _proyectImage) VALUES
-('Proyecto 1', 'Descripción del proyecto 1', '2022-01-01', '2022-03-01', NULL, NULL),
-('Proyecto 2', 'Descripción del proyecto 2', '2022-02-01', '2022-04-01', NULL, NULL);
+-- INSERT INTO Proyects (_proyectName, _proyectDescription, _startDate, _proyectDeadline, _finishDate, _proyectImage) VALUES
+-- ('Proyecto 1', 'Descripción del proyecto 1', '2022-01-01', '2022-03-01', NULL, NULL),
+-- ('Proyecto 2', 'Descripción del proyecto 2', '2022-02-01', '2022-04-01', NULL, NULL);
 
-INSERT INTO Tasks (_taskName, _taskDescription, _taskDeadline, _taskStatus) VALUES
-('Tarea 1', 'Descripción de la tarea 1', '2022-01-15', 'Pendiente'),
-('Tarea 2', 'Descripción de la tarea 2', '2022-02-15', 'Pendiente');
+INSERT INTO Employees(_name, _lastName, _idNumber, _cellphone, _email) VALUES("Juan", "Perez", "123456789", "555555555", "juanperez@example.com");
+INSERT INTO Employees(_name, _lastName, _idNumber, _cellphone, _email) VALUES("Maria", "Garcia", "987654321", "555555556", "mariagarcia@example.com");
+
+#Inserts para la tabla Users:
+INSERT INTO Users(_userName, _password, _idEmployee, _idCustomer, _idProyect) VALUES("juanperez", "password123", 1, 1, 1);
+INSERT INTO Users(_userName, _password, _idEmployee, _idCustomer, _idProyect) VALUES("mariagarcia", "password456", 2, 2, 2);
+
+#Inserts para la tabla Roles:
+INSERT INTO Roles(_roleName, _roleDescription) VALUES("admin", "Tiene acceso a todas las funciones del sistema");
+INSERT INTO Roles(_roleName, _roleDescription) VALUES("user", "Solo tiene acceso a funciones limitadas del sistema");
+
+#Inserts para la tabla Billing_Plans:
+INSERT INTO Billing_Plans(_planType, _pricePerMonth, _pricePerYear, _storage, _maxAccountsNumber, _maxGroupsNumber) VALUES("Básico", 9.99, 99.99, "10GB", 5, 3);
+INSERT INTO Billing_Plans(_planType, _pricePerMonth, _pricePerYear, _storage, _maxAccountsNumber, _maxGroupsNumber) VALUES("Premium", 19.99, 199.99, "20GB", 10, 5);
+
+#Inserts para la tabla Proyects:
+INSERT INTO Proyects(_proyectName, _proyectDescription, _startDate, _proyectDeadline) VALUES("Proyecto A", "Proyecto de prueba A", "2022-01-01", "2022-12-31");
+INSERT INTO Proyects(_proyectName, _proyectDescription, _startDate, _proyectDeadline) VALUES("Proyecto B", "Proyecto de prueba B", "2022-02-01", "2023-01-31");
+
+INSERT INTO Tasks (_taskName, _taskDescription, _taskDeadline, _taskStatus, _designatedEmployee) VALUES
+('Tarea 1', 'Descripción de la tarea 1', '2022-01-15 ', 'Pendiente', 1),
+('Tarea 2', 'Descripción de la tarea 2', '2022-02-15', 'Pendiente', 2);
 
 INSERT INTO Payment_Methods (_paymentMethodName) VALUES
 ('Tarjeta de crédito'),

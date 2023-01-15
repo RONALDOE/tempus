@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import userPic from "../../assets/user.png";
 import "../../css/personpage.css";
 import { Link } from "react-router-dom";
-import { useUserContext } from "../../contexts/UserContext";
+import { UserContext } from '../../contexts/UserContext';
 export const Personpage = () => {
 
-const user = useUserContext;
+const {user} = useContext(UserContext);
 
 
 

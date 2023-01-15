@@ -1,11 +1,16 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../../css/login.css";
 import axios from "axios";
+import { useUserContext } from '../../contexts/UserContext';
+import LoadingScreen from "../../components/_loadingscreen/Loadingscreen";
+
 
 const Login = () => {
   const [_userName, setUsername] = useState("");
   const [_password, setPassword] = useState("");
+  const [user, setUser] = useUserContext();
+
   const navigate = useNavigate()
 
   const [status, setStatus] = useState("")
@@ -34,6 +39,8 @@ const Login = () => {
         handleStatus(response.status)
         const token = response.data.token;
         localStorage.setItem("jwt", token);
+        setUser(response.data.results[0])
+        console.log(response.data.results)
         navigate("/dashboard")
         
       })
@@ -41,6 +48,20 @@ const Login = () => {
         console.error(error);
       });
   };
+  const [loading, setLoading] = useState(true);
+
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
+  
+
+  if (loading) {
+    return <LoadingScreen />;
+  } else {
+    
 
   return (
     <div id="loginpagecontainer">
@@ -88,6 +109,6 @@ const Login = () => {
       </div>
     </div>
   );
-};
+};}
 
 export default Login;

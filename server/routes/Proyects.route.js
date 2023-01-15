@@ -18,7 +18,7 @@ router.get("/:id", (req, res) => {
     id,
     (error, results) => {
       if (error) return res.json(error);
-      return res.json(results);
+      return res.json(results[0]);
     }
   );
 });

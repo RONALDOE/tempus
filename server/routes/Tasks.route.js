@@ -17,7 +17,13 @@ router.get("/:id", (req, res) => {
     return res.json(results[0])
   });
 });
-
+router.get("/user/:id", (req, res) => {
+  const id = req.params.id;
+  db.query("SELECT * FROM Tasks WHERE _designatedEmployee = ?", id, (error, results) => {
+    if(error) return res.json(error)
+    return res.json(results[0])
+  });
+});
 router.post('/', (req,res) =>{
     const values =[
         req.body._taskDescription,
