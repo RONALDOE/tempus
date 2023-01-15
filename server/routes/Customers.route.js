@@ -5,7 +5,7 @@ router.use(express.json());
 
 
 router.get('/', (req, res) =>{
-    db.query('SELECT * FROM Customer',
+    db.query('SELECT * FROM Customers',
     (error, results) => {
         if(error) return res.json(error)
         return res.json(results)    
@@ -16,7 +16,7 @@ router.get('/', (req, res) =>{
 router.get('/:id', (req, res) =>{
     const id = req.params.id
     
-    db.query('SELECT * FROM Customer WHERE _idCustomer = ?',id,
+    db.query('SELECT * FROM Customers WHERE _idCustomer = ?',id,
     (error, results) => {
         if(error) return res.json(error)
         return res.json(results)    
@@ -31,7 +31,7 @@ router.post('/', (req, res) => {
         req.body._isEnterprise,
         req.body._isProyect
     ]
-    db.query('INSERT INTO Customers(_selectedPlan, _emailCustomer, _cellphoneCustomer, _isEnterprise, _Proyect) VALUES (?,?,?,?)', [values],
+    db.query('INSERT INTO Customers(_selectedPlan, _emailCustomer, _cellphoneCustomer, _isEnterprise, _Proyect) VALUES (?)', [values],
     (error, results) => {
         if(error) return res.json(error)
         return res.json(results)    

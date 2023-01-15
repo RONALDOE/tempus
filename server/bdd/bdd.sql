@@ -41,6 +41,7 @@ _maxAccountsNumber INT NOT NULL,
 _maxGroupsNumber INT NOT NULL,
 PRIMARY KEY (_idPlan)
 );
+
 CREATE TABLE Proyects(
 _idProyect INT AUTO_INCREMENT,
 _proyectName VARCHAR(35) NOT NULL,
