@@ -47,7 +47,7 @@ _proyectName VARCHAR(35) NOT NULL,
 _proyectDescription VARCHAR(255) NOT NULL,
 _startDate DATETIME NOT NULL,
 _proyectDeadline DATETIME NOT NULL,
-_finishDate DATETIME,
+_finishDate DATETIME NULL,
 _proyectImage BLOB,
 PRIMARY KEY (_idProyect)
 );
@@ -58,7 +58,10 @@ CREATE TABLE Tasks (
   _taskDescription VARCHAR(255) NOT NULL,
   _taskDeadline DATETIME NOT NULL,
   _taskStatus VARCHAR(50) NOT NULL,
-  PRIMARY KEY (_idTask)
+  _designatedEmployee INT NOT NULL,
+  PRIMARY KEY (_idTask),
+  FOREIGN KEY (_designatedEmployee) REFERENCES Employees(_idEmployee)
+
 );
 
 CREATE TABLE Payment_Methods(

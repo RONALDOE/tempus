@@ -15,7 +15,7 @@ router.get('/', (req,res) =>{
 
 router.get('/:id', (req, res) =>{
     const id = req.params.id
-    db.query("SELECT * FROM Billing_Plans WHERE _idPlan",
+    db.query("SELECT * FROM Billing_Plans WHERE _idPlan = ?",
     id,
     (error, results) =>{
         if(error) return res.json(error)

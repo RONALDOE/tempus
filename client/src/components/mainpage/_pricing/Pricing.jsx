@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../../../css/pricing.css";
 import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
 const Pricing = () => {
   const [pricings, setPricings] = useState([]);
@@ -15,11 +16,18 @@ const Pricing = () => {
     fetchData();
   }, []);
 
+  
   return (
     <div className="pricingContainer" id="pricings">
+      
       <h2 className="price-heading"> Pricing </h2>
       <div className="pricing-container">
-        {pricings.map((pricing) => (
+        { 
+        
+        pricings.map((pricing) => (
+          
+          <Link to={`/pay/${pricing._idPlan}`} >
+            
           <div className="pricing-item" key={pricing._idPlan}>
             <h3 className="pricing-kit">{pricing._planType}</h3>
             <p className="pricing-m">
@@ -35,6 +43,7 @@ const Pricing = () => {
             </ul>
             <button className="order-btn">order now</button>
           </div>
+        </Link>
         ))}
 
        

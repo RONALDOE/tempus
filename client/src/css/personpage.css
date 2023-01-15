@@ -7,16 +7,14 @@
 .middleCard,
 .bottomCard {
   margin: 3vh 1vh 0.5vh 3vh;
-  width: 33.3333333333333333333333333333333333333333333333333vh;
+  width: 22.45vw;
   height: 28vh;
   border-radius: 0.5rem;
   box-shadow: rgba(93, 93, 102, 0.2) 0px 7px 29px 0.5rem;
   position: relative;
 }
 
-.middleCard {
-  width: 51vh;
-}
+
 
 .bottomCard {
   width: 108.1vh;
@@ -80,6 +78,13 @@
   background-repeat: no-repeat;
 }
 
+#tasksIcon {
+  background-image: url("../assets/tasks.png");
+  background-position: 50%;
+  background-size: 1.8rem;
+  background-repeat: no-repeat;
+}
+
 .uploaded-files-table {
   margin-top: 2rem;
   width: 100%;
@@ -129,10 +134,9 @@
 
 .userPic {
   position:relative;
-  top: 15%;
+  top: 10%;
   left: 50%;
-  transform: translate(-50%, -15%);
-  
+  transform: translate(-50%, -10%);
   width: 6.5rem !important;
   height: 6.5rem !important;
   border-radius: 50%;

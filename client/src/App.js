@@ -9,13 +9,14 @@ import Login from "./pages/login/Login.jsx";
 import Joinus from "./pages/joinus/Joinus.js";
 import Signup from "./pages/singup/Singup";
 import Employeescrud from "./pages/cruds/Employeesrud";
+import Proyectscrud from "./pages/cruds/Proyectscrud"
 import Dashboard from "./pages/dashboarduser/Dashboarduser";
 import Sidebar from "./components/_sidebar/Sidebar";
 import NewEmployee from "./pages/inserters/NewEmployee";
 import UpdateEmployee from "./pages/updaters/EditEmployee";
 import LoadingScreen from "./components/_loadingscreen/Loadingscreen";
-import Payments from "./components/_payments/Payments";
 import  {Personpage}  from './pages/personPage/Personpage';
+import ReactPayPal from "./components/_paypal/ReactPaypal";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -45,8 +46,9 @@ export default function App() {
           <Route path="signup" element={<Signup showOut />} />
           <Route path="stadistics" element={<Stadistics />} />
           <Route path="login" element={<Login />} />
-          <Route path="pay" element={<Payments />} />
+          <Route path="pay/:id" element={<ReactPayPal />} />
           <Route path="employees" element={<Employeescrud />} />
+          <Route path="proyects" element={<Proyectscrud />} />
           <Route path="employee/new" element={<NewEmployee />} />
           <Route path="employee/:idEmployee" element={<UpdateEmployee />} />
           <Route path="joinus" element={<Joinus />} />

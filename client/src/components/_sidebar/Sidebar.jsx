@@ -28,7 +28,7 @@ const  Sidebar = () =>  {
   
 const location = useLocation();
 
-if (location.pathname === '/login' || location.pathname === '/' || location.pathname === '/' ) {
+if (location.pathname === '/login' || location.pathname === '/' || location.pathname === '/pay/1'|| location.pathname === '/pay/2'|| location.pathname === '/pay/3' ) {
   return null;
 }
           

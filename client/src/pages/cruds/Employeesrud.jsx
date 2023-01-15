@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "../../css/crudtable.css";
 
-function Usertable() {
+function Employeestable() {
   //Ventana Modal
 
   //Tomar datos de la base de datos
@@ -155,4 +155,4 @@ function Usertable() {
   );
 }
 
-export default Usertable;
+export default Employeestable;

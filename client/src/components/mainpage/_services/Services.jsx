@@ -13,7 +13,7 @@ class Services extends Component {
   render() {
     return (
       <div className="allcontainer" id="servicescontainer">
-        <div class="main-div" id="upper">
+        <div className="main-div" id="upper">
           <div className="card">
             <div className="imgbox">
               <img className='servicesimg' src={chat} alt="" />
