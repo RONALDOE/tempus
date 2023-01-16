@@ -31,15 +31,24 @@ const Login = () => {
     }
   }
 
+  function probarDatos(){
+    const token = document.cookie.replace('token=', '')
+    axios
+    .post('http://localhost:8000/auth/testingData',{headers: {'authorization': token}})
+    .then((response) =>{response.json()})
+    .then(data =>{console.log(data)})
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:8000/login", { _userName, _password })
+      .post("http://localhost:8000/auth", { _userName, _password })
       .then((response) => {
         handleStatus(response.status)
         const token = response.data.token;
-        localStorage.setItem("jwt", token);
-        setUser(response.data.results[0])
+        document.cookie = `token=${token}; max-age=${3600 * 3}; path=/; samesite=strict`
+        console.log(document.cookie)
+        setUser(response.data.results)
         console.log(response.data.results)
         navigate("/dashboard")
         

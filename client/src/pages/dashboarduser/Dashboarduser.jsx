@@ -8,9 +8,25 @@ import axios from "axios";
 import LoadingScreen from "../../components/_loadingscreen/Loadingscreen";
 import moment from 'moment'
 import Moment from 'react-moment';
-
+import CheckToken from '../../utils/CheckToken';
 
 export default function Dashboard() {
+
+  CheckToken()
+  useEffect(()=>{
+
+
+    function probarDatos(){
+      const token = document.cookie.replace('token=', '')
+      axios
+      .post('http://localhost:8000/auth/testingData',{headers: {'authorization': token}})
+      .then((response) =>{response.json()})
+      .then(data =>{console.log(data)})
+    }
+  },[])
+
+
+
 
   const [user, setUser] = useUserContext();
 

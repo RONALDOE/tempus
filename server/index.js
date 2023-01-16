@@ -4,8 +4,8 @@ const cors = require("cors")
 const app = express();
 app.use(cors())
 
-const login = require('./routes/Login.route')
-app.use("/login", login)
+const auth = require('./routes/Auth.route')
+app.use("/auth", auth)
 
 const billing_plans = require("./routes/Billing_Plans.route")
 app.use("/billing_plans", billing_plans)
