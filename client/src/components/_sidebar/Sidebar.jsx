@@ -14,8 +14,8 @@ const  Sidebar = () =>  {
   const elementRef = useRef(null);
 
   const handleLogout = () => {
-    localStorage.removeItem("jwt");
-    navigate('/')
+    document.cookie = `token= ; max-age=; path=/; samesite=strict`
+    navigate('/login')
   
   };
 
@@ -35,7 +35,7 @@ const [loading, setLoading] = useState(true);
 useEffect(() => {
   setTimeout(() => {
     setLoading(false);
-  }, 1000);
+  }, 50);
 }, []);
 
 

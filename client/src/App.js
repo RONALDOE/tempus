@@ -28,7 +28,15 @@ export default function App() {
       setLoading(false);
     }, 1000);
   }, []);
+  /*
+  Registers
+  Cruds
+  Uploader
+  Fotos de devs
+  revisar bdd
   
+  
+  */
 
   if (loading) {
     return <LoadingScreen />;

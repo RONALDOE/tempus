@@ -12,18 +12,7 @@ import CheckToken from '../../utils/CheckToken';
 
 export default function Dashboard() {
 
-  CheckToken()
-  useEffect(()=>{
-
-
-    function probarDatos(){
-      const token = document.cookie.replace('token=', '')
-      axios
-      .post('http://localhost:8000/auth/testingData',{headers: {'authorization': token}})
-      .then((response) =>{response.json()})
-      .then(data =>{console.log(data)})
-    }
-  },[])
+  
 
 
 
@@ -73,6 +62,7 @@ export default function Dashboard() {
   useEffect(() => {
     const interval = setInterval(() => {
       setTime(new Date());
+      
     }, 1);
     
   
@@ -82,31 +72,31 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
 
 
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setLoading(false);
+  //   }, 500);
+  // }, []);
   
   const [taskTime, setTaskTime] = useState({})
 
-  useEffect(()=>{
+  // useEffect(()=>{
 
-    const taskDeadline = () =>{
-      const dateToFormat = userTask._taskDeadline
+  //   const taskDeadline = () =>{
+  //     const dateToFormat = userTask._taskDeadline
       
-      const momentDate = moment(dateToFormat)
-      const formattedDate = momentDate.format('DD/MM/YYYY')
-      console.log(formattedDate)
-      setTaskTime(formattedDate)
-      return(formattedDate)
-    }
-    taskDeadline()
-  }, [])
+  //     const momentDate = moment(dateToFormat)
+  //     const formattedDate = momentDate.format('DD/MM/YYYY')
+  //     console.log(formattedDate)
+  //     setTaskTime(formattedDate)
+  //     return(formattedDate)
+  //   }
+  //   taskDeadline()
+  // }, [])
 
-  if (loading) {
-    return <LoadingScreen />;
-  } else {
+  // if (loading) {
+  //   return <LoadingScreen />;
+  // } else {
   return (
     <div className="dashboardContainer">
       <div className="topItems">
@@ -181,4 +171,4 @@ export default function Dashboard() {
     </div>
   );
 }
-}
+//}

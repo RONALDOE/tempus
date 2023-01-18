@@ -31,13 +31,6 @@ const Login = () => {
     }
   }
 
-  function probarDatos(){
-    const token = document.cookie.replace('token=', '')
-    axios
-    .post('http://localhost:8000/auth/testingData',{headers: {'authorization': token}})
-    .then((response) =>{response.json()})
-    .then(data =>{console.log(data)})
-  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -48,7 +41,7 @@ const Login = () => {
         const token = response.data.token;
         document.cookie = `token=${token}; max-age=${3600 * 3}; path=/; samesite=strict`
         console.log(document.cookie)
-        setUser(response.data.results)
+        setUser(response.data.results[0])
         console.log(response.data.results)
         navigate("/dashboard")
         

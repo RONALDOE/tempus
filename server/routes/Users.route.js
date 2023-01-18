@@ -17,7 +17,7 @@ router.get("/:id", (req, res) => {
   db.query("SELECT * FROM Users WHERE _idUser = ?", id, (error, results) => {
     if (error) return res.json(error);
 
-    return res.json(results);
+    return res.json(results[0]);
   });
 });
 

@@ -23,7 +23,7 @@ function Employeestable() {
 
   async function handleDelete(id) {
     try {
-      await axios.delete("http://localhost:8000/employees/" + id);
+      await axios.delete("http://localhost:8000/employee/" + id);
       console.log("si")
       window.location.reload();
     } catch (error) {
@@ -76,7 +76,7 @@ function Employeestable() {
   return (
     <>
       <div className="crudContainer">
-        <Link to="/employees/new">
+        <Link to="/employee/new">
           <button className="createButton">
             <i class="fa-solid fa-circle-plus fa-xl" /> Create
           </button>
@@ -129,7 +129,7 @@ function Employeestable() {
                     <td className="td">{employee._email}</td>
 
                     <td className="td">
-                      <Link to={`/employees/${employee._idEmployee}`}>
+                      <Link to={`/employee/${employee._idEmployee}`}>
                       <button
                         className="crudButton edit">
                         <i class="fa-solid fa-pen-to-square fa-xl" />
