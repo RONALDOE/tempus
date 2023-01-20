@@ -93,7 +93,6 @@ FOREIGN KEY (_selectedPlan) REFERENCES Billing_Plans(_idPlan)
 
 );
 
-SELECT * FROM TASKS
 #GREMIOS
 CREATE TABLE Guilds(
 _idGuild INT AUTO_INCREMENT,
@@ -117,16 +116,16 @@ CREATE TABLE WorkGroups (
 
 
 
-CREATE TABLE Messages (
-  _idMessage INT AUTO_INCREMENT,
-  _sender INT NOT NULL,
-  _recipient INT NOT NULL,
-  _message TEXT NOT NULL,
-  _sendDate DATETIME NOT NULL,
-  PRIMARY KEY (_idMessage),
-  FOREIGN KEY (_sender) REFERENCES Employees(_idEmployee),
-  FOREIGN KEY (_recipient) REFERENCES Employees(_idEmployee)
-);
+-- CREATE TABLE Messages (
+--   _idMessage INT AUTO_INCREMENT,
+--   _sender INT NOT NULL,
+--   _recipient INT NOT NULL,
+--   _message TEXT NOT NULL,
+--   _sendDate DATETIME NOT NULL,
+--   PRIMARY KEY (_idMessage),
+--   FOREIGN KEY (_sender) REFERENCES Employees(_idEmployee),
+--   FOREIGN KEY (_recipient) REFERENCES Employees(_idEmployee)
+-- );
 
 
 
