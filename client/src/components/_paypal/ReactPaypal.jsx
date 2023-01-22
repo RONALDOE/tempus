@@ -7,6 +7,7 @@ import {
   PayPalButtons,
   usePayPalScriptReducer,
 } from "@paypal/react-paypal-js";
+import "../../css/reactpaypal.css"
 
 
 export default function ReactPaypal() {
@@ -14,7 +15,8 @@ export default function ReactPaypal() {
   const [pricing, setPricing] = useState({});
   const [isAnnual, setIsAnnual] = useState(false);
   const [payPrice, setPayPrice] = useState("");
-  const [loading, setLoading] = useState(true);
+  const [selectedPlan, setSelectedPlan] = useState("")
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     // Simulamos la carga de datos
@@ -28,16 +30,17 @@ export default function ReactPaypal() {
   console.log(_planId);
 
   
+
+
   useEffect(() => {
     async function fetchPlanData() {
       const res = await axios.get(
-        `http://localhost:8000/billing_plans/${_planId}`
+        `http://localhost:8000/billing_plans/${selectedPlan}`
       );
       console.log(res.data);
       setPricing(res.data);
       setPayPrice(res.data._pricePerMonth);
-      setLoading(false)
-    }
+      }
     fetchPlanData();
   }, {});
 
@@ -53,60 +56,58 @@ export default function ReactPaypal() {
     return <LoadingScreen />;
   } else {
     return (
-    <>
-     
-      
-      <div
-        className="paymentContainer"
-        style={{
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          position: "absolute",
-        }}
-      >
-        <div className="pricing-container">
-          <div className="pricing-item" key={pricing._idPlan}>
-            <h3 className="pricing-kit">{pricing._planType}</h3>
-            <p className="pricing-m">
-              <sup>$</sup>
-              {payPrice}
-              <sub>{isAnnual ? "/MO" : "/AN"}</sub>
-            </p>
-            <ul className="offers">
-              <li>{pricing._storage + " SSD"} </li>
-              <li>{pricing._maxAccountsNumber + " Accounts"} </li>
-              <li>{pricing._maxGroupsNumber + " Groups"}</li>
-            </ul>
-            <button
-              className="order-btn"
-              onClick={() => {
-                setIsAnnual(!isAnnual);
-                handlePayPrice();
-              }}
-            >
-              Change Plan
-            </button>
-          </div>
+      <>
+
+        <div className="payContainer">
+          <div className="payPlanCard">
+              <div className="pricing-container">
+                <div className="pricing-item" key={pricing._idPlan}>
+                  <h3 className="pricing-kit">{pricing._planType}</h3>
+                  <p className="pricing-m">
+                    <sup>$</sup>
+                    {payPrice}
+                    <sub>{isAnnual ? "/MO" : "/AN"}</sub>
+                  </p>
+                  <ul className="offers">
+                    <li>{pricing._storage + " SSD"} </li>
+                    <li>{pricing._maxAccountsNumber + " Accounts"} </li>
+                    <li>{pricing._maxGroupsNumber + " Groups"}</li>
+                  </ul>
+                  <button
+                    className="order-btn"
+                    onClick={() => {
+                      setIsAnnual(!isAnnual);
+                      handlePayPrice();
+                    }}
+                  >
+                    Change Plan
+                  </button>
+                </div>
+              </div>
+
+              </div>
+            <div className="payPaypal">
+    
+                  <PayPalScriptProvider
+                    options={{
+                      "client-id":
+                        "AVuYhTGfBCARH1p_dpWeZBYKF21PduoHXLI5-FpxCeTQTdojmHCcDSNGt7XX2YR235dw1WScxWgweBSN",
+                      components: "buttons",
+                      currency: "USD",
+                    }}
+                  >
+                    <ButtonWrapper
+                      amount={payPrice}
+                      currency={"USD"}
+                      showSpinner={true}
+                    />
+                  </PayPalScriptProvider>
+            </div>
         </div>
-        <PayPalScriptProvider
-          options={{
-            "client-id":
-              "AVuYhTGfBCARH1p_dpWeZBYKF21PduoHXLI5-FpxCeTQTdojmHCcDSNGt7XX2YR235dw1WScxWgweBSN",
-            components: "buttons",
-            currency: "USD",
-          }}
-        >
-          <ButtonWrapper
-            amount={payPrice}
-            currency={"USD"}
-            showSpinner={true}
-          />
-        </PayPalScriptProvider>
-      </div>
-      
-    </>
-  );}
+
+      </>
+    );
+  }
 }
 // This values are the props in the UI
 
@@ -123,7 +124,7 @@ const ButtonWrapper = ({ currency, showSpinner, amount, style }) => {
         currency: currency,
       },
     });
-  }, [amount,currency, showSpinner]);
+  }, [amount, currency, showSpinner]);
 
   return (
     <>

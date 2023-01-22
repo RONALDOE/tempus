@@ -14,7 +14,7 @@ class Services extends Component {
     return (
       <div className="allcontainer" id="servicescontainer">
         <div className="main-div" id="upper">
-          <div className="card">
+          <div className="Servicecard">
             <div className="imgbox">
               <img className='servicesimg' src={chat} alt="" />
             </div>
@@ -27,7 +27,7 @@ class Services extends Component {
               </p>
             </div>
           </div>
-          <div className="card">
+          <div className="Servicecard">
             <div className="imgbox">
               <img className='servicesimg'src={analitics} alt="" />
             </div>
@@ -40,7 +40,7 @@ class Services extends Component {
               </p>
             </div>
           </div>
-          <div className="card">
+          <div className="Servicecard">
             <div className="imgbox">
               <img className='servicesimg' src={freestyle} alt="" />
             </div>
@@ -61,7 +61,7 @@ class Services extends Component {
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, eum! Repellendus nemo voluptates
                         eius, illum esse consectetur ex laborum facilis saepe nesciunt suscipit! Raju Koth Kalan</p>
                 </div>
-                <div className="card">
+                <div className="Servicecard">
                 <div className="imgbox">
                     <img className='servicesimg'  src={teamcolaboration} alt=""/>
                 </div>
@@ -71,7 +71,7 @@ class Services extends Component {
                         eius, illum esse consectetur ex laborum facilis saepe nesciunt suscipit! Raju Koth Kalan</p>
                 </div>
             </div>
-            <div className="card">
+            <div className="Servicecard">
                 <div className="imgbox">
                     <img className='servicesimg' src={realtime} alt=""/>
                 </div>
@@ -81,7 +81,7 @@ class Services extends Component {
                         eius, illum esse consectetur ex laborum facilis saepe nesciunt suscipit! Raju Koth Kalan</p>
                 </div>
             </div>
-            <div className="card">
+            <div className="Servicecard">
                 <div className="imgbox">
                     <img className='servicesimg' src={remotework} alt=""/>
                 </div>

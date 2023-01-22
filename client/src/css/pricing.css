@@ -6,6 +6,9 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+.transparent-bg {
+    background-color: transparent !important;
+  }
 
 
 .pricingContainer {

@@ -45,7 +45,7 @@ export default function App() {
           <Route path="*" element={<Nopage showOut />} />
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="upload" element={<Uploader />} />
-          <Route path="signup" element={<Signup showOut />} />
+          <Route path="signup" element={<Signup/>} />
           <Route path="stadistics" element={<Stadistics />} />
           <Route path="login" element={<Login />} />
           <Route path="pay/:id" element={<ReactPayPal />} />
