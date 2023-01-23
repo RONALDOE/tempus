@@ -3,22 +3,13 @@ import "../../../css/pricing.css";
 import axios from "axios";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
-const Pricing = (isDisplaying) => {
+const Pricing = (props) => {
   const [pricings, setPricings] = useState([]);
   const [thisClass, setThisClass] = (" notShowing")
 
 
 let pricingContainerClass = "";
-  function CambiaClase(){
-    
-    if(!isDisplaying){
-      pricingContainerClass = `pricingContainer ${bgClass} notShowing`
-    }
-    else {
-      pricingContainerClass = `pricingContainer ${bgClass} showing`
-
-    }
-  }
+ 
 
   useEffect(() => {
     async function fetchData() {
@@ -34,7 +25,7 @@ let pricingContainerClass = "";
   const [bgClass, setBgClass] = useState("");
   useEffect(() => {
     if (location.pathname === "/signup") {
-      setBgClass("transparent-bg");
+      setBgClass(" transparent-bg");
     } else {
       setBgClass("");
     }
@@ -44,7 +35,7 @@ let pricingContainerClass = "";
   return (
 
     (location.pathname === "/signup"? 
-    <div className={pricingContainerClass} id="pricings" >
+    <div className={props.class + bgClass} id="pricings" >
 
       
     <h2 className="price-heading"> Select Your Plan </h2>
@@ -67,9 +58,12 @@ let pricingContainerClass = "";
             <li>{pricing._maxAccountsNumber + " Accounts"}  </li>
             <li>{pricing._maxGroupsNumber + " Groups"}</li>
           </ul>
+
         </div>
+
       ))}
 
+<button className="pricingNextBtn"  />
      
     </div>
   </div> :

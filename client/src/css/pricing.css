@@ -122,3 +122,32 @@
     color: var(--black1);
 
 }
+
+
+.pricingNextBtn {
+    position: relative;
+    top: 100%;
+    transform: translateY(-95%);
+    z-index: 10;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    background-image: url("../assets/arrow-right-solid.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-color: var(--accent);
+
+    }

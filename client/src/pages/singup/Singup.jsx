@@ -17,8 +17,24 @@ const Signup = () => {
 
   const [pricing, setPricing] = useState([])
   const [payPrice, setPayPrice] = useState({})
-  const [selectedPlan, setSelectedPlan] = useState({})
   const [isAnnual, setIsAnnual] = useState(false);
+  const [showPricing, setShowPricing] = useState(false);
+  const [showForm, setShowForm] = useState(true);
+  const [showPayment, setShowPayment  ] = useState(false);
+  const [showPlans, setShowPlans] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState(null);
+
+  const handleNext = () => {
+    setShowForm(false);
+    setShowPlans(true);
+  }
+
+  const handlePlanSelect = (plan) => {
+    setSelectedPlan(plan);
+    setShowPlans(false);
+    setShowPayment(true);
+  }
+
 
 
   useEffect(() => {
@@ -34,6 +50,14 @@ const Signup = () => {
     fetchPlanData();
   }, []);
 
+
+  const onPlanSelect = (plan) => {
+    setSelectedPlan(plan);
+  }
+  const handleShowPricing = () => {
+    if(!showPricing) setShowPricing(true);
+    else setShowPricing(false)
+  }
   
   function handlePayPrice() {
     setPayPrice(isAnnual ? parseInt(pricing._pricePerYear) : pricing._pricePerMonth);
@@ -43,13 +67,17 @@ const Signup = () => {
 
   return (
     <div id="signuppagecontainer">
+
+      
       <ul id="progressbar">
         <li class="active">Account Setup</li>
         <li>Social Profiles</li>
         <li>Personal Details</li>
       </ul>
+         { showForm &&
+        <>  
 
-      <div className="signupbox" id="customerData" style={{ display: "none" }}>
+      <div className="signupbox" id="customerData" >
         <h2 className="signuph2" id="signupTitle"> Sign Up </h2>
         <form className="signupform" action=""
           autocomplete="off">
@@ -95,13 +123,19 @@ const Signup = () => {
             </div>
           </div>
         </form>
-        <button className="nextbtn" />
-      </div>
+        <button className="nextbtn" onClick={() =>{ setShowForm(false); setShowPlans(true)  }}/>
+      </div>    
+      </>
+}
+{ showPlans && 
+<Pricing/>
+}
+{
+  showPayment &&
 
 
-      <Pricing />
-
-       <ReactPaypal/>
+      <ReactPaypal/>
+}
     </div>
 
   );

@@ -35,10 +35,10 @@ export default function App() {
   } else {
     return (
       <>
-      <Provider>
 
         <Sidebar />
 
+      <Provider>
         <Routes>
           <Route index element={<Mainpage showOut />} />
           <Route index element={<Home />} />
