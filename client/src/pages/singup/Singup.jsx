@@ -187,8 +187,11 @@ const Signup = () => {
 {
   showPayment &&
 
-
+<>
       <ReactPaypal plan={selectedPlan._idPlan}/>
+<button className="pricingBackBtn" onClick={() =>{  setShowPlans(true); setShowPayment(false); handleProgress(2)}}/>
+</>
+
 }
     </div>
 

@@ -4,6 +4,9 @@ const cors = require("cors")
 const app = express();
 app.use(cors())
 
+const files = require("./routes/FilesUpload.route")
+app.use("/files", files)
+
 const auth = require('./routes/Auth.route')
 app.use("/auth", auth)
 
