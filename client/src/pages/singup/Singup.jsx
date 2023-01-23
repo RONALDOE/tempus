@@ -10,12 +10,32 @@ import {
 } from "@paypal/react-paypal-js";
 import axios from "axios"
 import ReactPaypal from "../../components/_paypal/ReactPaypal";
+export const handlePricing = (_pricing) => {
+const _pricingData = _pricing;  
+  console.log(_pricing)
+  return _pricing
+  
+} 
 
 
 const Signup = () => {
-
-
   const [pricing, setPricing] = useState([])
+
+  const [pricings, setPricings] = useState([]);
+  
+  
+  useEffect(() => {
+    async function fetchData() {
+      const res = await axios.get("http://localhost:8000/billing_plans");
+
+      setPricings(res.data);
+      console.table(res.data)
+    }
+    fetchData();
+  }, []);
+  
+
+
   const [payPrice, setPayPrice] = useState({})
   const [isAnnual, setIsAnnual] = useState(false);
   const [showPricing, setShowPricing] = useState(false);
@@ -23,6 +43,8 @@ const Signup = () => {
   const [showPayment, setShowPayment  ] = useState(false);
   const [showPlans, setShowPlans] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState(null);
+
+ 
 
   const handleNext = () => {
     setShowForm(false);
@@ -35,20 +57,12 @@ const Signup = () => {
     setShowPayment(true);
   }
 
+  const [currentStep, setCurrentStep] = useState(1);
 
+  const handleProgress = (step) => {
+    setCurrentStep(step);
+  }
 
-  useEffect(() => {
-    async function fetchPlanData() {
-      const res = await axios.get(
-        `http://localhost:8000/billing_plans/1`
-        );
-        console.log(res.data);
-        setPricing(res.data);
-      setPayPrice(res.data._pricePerMonth);
-    }
-        console.log("res.data");
-    fetchPlanData();
-  }, []);
 
 
   const onPlanSelect = (plan) => {
@@ -70,9 +84,9 @@ const Signup = () => {
 
       
       <ul id="progressbar">
-        <li class="active">Account Setup</li>
-        <li>Social Profiles</li>
-        <li>Personal Details</li>
+        <li className={currentStep === 1 ? "active" : ""}>Account Setup</li>
+        <li className={currentStep === 2 ? "active" : ""}>Plan Selection</li>
+        <li className={currentStep === 3 ? "active" : ""}>Payment</li>
       </ul>
          { showForm &&
         <>  
@@ -123,18 +137,58 @@ const Signup = () => {
             </div>
           </div>
         </form>
-        <button className="nextbtn" onClick={() =>{ setShowForm(false); setShowPlans(true)  }}/>
+        <button className="nextbtn" onClick={() =>{ setShowForm(false); setShowPlans(true) ; handleProgress(2) }}/>
       </div>    
       </>
 }
 { showPlans && 
-<Pricing/>
+<>
+
+    <div className="" id="pricings" >
+
+      
+    <h2 className="price-heading"> Select Your Plan </h2>
+    <div className="pricing-container">
+      { 
+      
+      pricings.map((pricing) => (
+        
+        
+        
+        <div className="pricing-item" key={pricing._idPlan} onClick={() =>{
+           setSelectedPlan(pricing);
+           setShowPlans(false);
+          handleProgress(3);
+          setShowPayment(true)
+           }} >
+          <h3 className="pricing-kit">{pricing._planType}</h3>
+          <p className="pricing-m">
+            <sup>$</sup>{pricing._pricePerMonth} <sub>/MO</sub>
+          </p>
+          <p className="pricing-a">
+            <sup>$</sup>{pricing._pricePerYear}<sub>/AN</sub>
+          </p>
+          <ul className="offers">
+            <li>{pricing._storage + " SSD"} </li>
+            <li>{pricing._maxAccountsNumber + " Accounts"}  </li>
+            <li>{pricing._maxGroupsNumber + " Groups"}</li>
+          </ul>
+
+        </div>
+
+      ))}
+
+     
+    </div>
+  </div>
+<button className="pricingBackBtn" onClick={() =>{ setShowForm(true); setShowPlans(false); handleProgress(1)}}/>
+</>
 }
 {
   showPayment &&
 
 
-      <ReactPaypal/>
+      <ReactPaypal plan={selectedPlan._idPlan}/>
 }
     </div>
 

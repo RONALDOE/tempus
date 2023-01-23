@@ -10,7 +10,7 @@ import {
 import "../../css/reactpaypal.css"
 
 
-export default function ReactPaypal() {
+export default function ReactPaypal(props) {
   const location = useLocation();
   const [pricing, setPricing] = useState({});
   const [isAnnual, setIsAnnual] = useState(false);
@@ -26,22 +26,22 @@ export default function ReactPaypal() {
   }, []);
 
 
-  const _planId = location.pathname.split("/")[2];
+  const _planId = props.plan;
   console.log(_planId);
 
   
 
 
   useEffect(() => {
-    async function fetchPlanData() {
+    async function fetchPlanData(id) {
       const res = await axios.get(
-        `http://localhost:8000/billing_plans/${selectedPlan}`
+        `http://localhost:8000/billing_plans/${id}`
       );
       console.log(res.data);
       setPricing(res.data);
       setPayPrice(res.data._pricePerMonth);
       }
-    fetchPlanData();
+    fetchPlanData(_planId);
   }, {});
 
   function handlePayPrice() {

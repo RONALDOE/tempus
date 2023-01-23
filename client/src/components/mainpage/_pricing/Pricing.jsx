@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../../../css/pricing.css";
 import axios from "axios";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { handlePricing } from "../../../pages/singup/Singup";
 
 const Pricing = (props) => {
   const [pricings, setPricings] = useState([]);
@@ -45,7 +46,7 @@ let pricingContainerClass = "";
       pricings.map((pricing) => (
         
           
-        <div className="pricing-item" key={pricing._idPlan}>
+        <div className="pricing-item" key={pricing._idPlan} >
           <h3 className="pricing-kit">{pricing._planType}</h3>
           <p className="pricing-m">
             <sup>$</sup>{pricing._pricePerMonth} <sub>/MO</sub>
@@ -63,7 +64,6 @@ let pricingContainerClass = "";
 
       ))}
 
-<button className="pricingNextBtn"  />
      
     </div>
   </div> :
