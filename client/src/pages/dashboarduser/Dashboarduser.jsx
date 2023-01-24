@@ -9,11 +9,22 @@ import LoadingScreen from "../../components/_loadingscreen/Loadingscreen";
 import moment from 'moment'
 import Moment from 'react-moment';
 import CheckToken from '../../utils/CheckToken';
+import AWS,{ S3 } from 'aws-sdk';
+
 
 export default function Dashboard() {
 
   
-
+  function formatFileSize(sizeInBytes) {
+    if (sizeInBytes < 1000000) 
+    {
+      return (sizeInBytes / 1000).toFixed(2) + ' KB';
+    } else if (sizeInBytes < 1000000000) {
+      return (sizeInBytes / 1000000).toFixed(2) + ' MB';
+    } else {
+      return (sizeInBytes / 1000000000).toFixed(2) + ' GB';
+    }
+  }
   
   
   const [user, setUser] = useUserContext();
@@ -115,6 +126,52 @@ export default function Dashboard() {
   // if (loading) {
   //   return <LoadingScreen />;
   // } else {
+
+  // const handleDownload = async () => {
+  //   // Configurar la autenticación con AWS
+  //   AWS.config.update({
+  //     accessKeyId: 'YOUR_ACCESS_KEY',
+  //     secretAccessKey: 'YOUR_SECRET_KEY',
+  //   });
+
+  //   // Crear una instancia de S3
+  //   const s3 = new AWS.S3();
+
+  //   // Generar una URL temporal de descarga
+  //   const params = {
+  //     Bucket: 'YOUR_BUCKET_NAME',
+  //     Key: 'path/to/file.jpg',
+  //     Expires: 60, // Tiempo de expiración de la URL en segundos
+  //   };
+  //   const url = await s3.getSignedUrl('getObject', params);
+
+  //   // Crear una etiqueta a y asignar la URL como su href
+  //   const link = document.createElement('a');
+  //   link.href = url;
+  //   link.download = 'file.jpg';
+  //   document.body.appendChild(link);
+  //   link.click();
+  //   document.body.removeChild(link);
+  // };
+  AWS.config.update({
+    accessKeyId: 'AKIA4GUEUVFEFPSGSJMX',
+    secretAccessKey: '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'
+  });
+  
+
+  const [downloadUrl, setDownloadUrl] = useState(null);
+
+  // const handleDownload  = (fileKey) => {
+  //   const s3 = new AWS.S3();
+  //   const params = { Bucket: 'tempus-dev-bucket', Key: fileKey };
+  //   s3.getObject(params, (err, url) => {
+  //     if (err) throw err;
+  //     console.log(url)
+  //     setDownloadUrl(url);
+  //   });
+  // };
+
+
   return (
     <div className="dashboardContainer">
       <div className="topItems">
@@ -151,9 +208,9 @@ export default function Dashboard() {
           <div className="dashicon" />
           <h4 className="dashTitle">Lastest Uploads</h4>
 
+            <div className="tbodyContainer">
           <table className="uploaded-files-table">
             <thead>
-
             <tr>
               <th className="tableHeader">Name</th>
               <th className="tableHeader">Weight</th>
@@ -163,7 +220,8 @@ export default function Dashboard() {
               <th className="tableHeader">Download</th>
             </tr>
             </thead>
-            <tbody>
+
+            <tbody className="tbody">
             {files.length === 0? (<tr className="tr">
                   <td className=" td noDataCell" colSpan={7}>
                     No data
@@ -171,14 +229,14 @@ export default function Dashboard() {
                 </tr>
                 ) : (
                   files.map((upload) =>(
-              
-                <tr className="tr" key={upload._idUpload}>
-                  <td className="td">{upload._fileName}</td>
-                  <td className="td">{upload._fileWeight}</td>
+                    
+                    <tr className="tr" key={upload._idUpload}>
+                  <td className="td">{upload._fileName.length > 13? upload._fileName.slice(0,13) : upload._fileName  }</td>
+                  <td className="td">{formatFileSize(upload._fileWeight)}</td>
                   <td className="td">{upload._timestamp}</td>
                   <td className="td">{upload.userName}</td>
                   <td className="td">{upload._idProyect}</td>
-                  <td className="td">{upload._idProyect}</td>
+                  <td className="td"><a href={`http://localhost:8000/files/download/${upload._fileKey}@${upload._fileName}`}> <button className="downloadBtn" ><i class="fa-solid fa-file-arrow-down fa-xl"/></button></a></td>
 
 
                 </tr>
@@ -186,9 +244,8 @@ export default function Dashboard() {
             
         
             </tbody>
-            <tr></tr>
-            <tr></tr>
           </table>
+              </div>
         </div>
       </div>
       <div className="rightColumn">

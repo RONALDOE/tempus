@@ -13,19 +13,55 @@ const Uploader = () => {
     const [fileWeight, setFileWeight] = useState('')
     const [idProyect, setIdProyect] = useState('')
     const [idUser, setIdUser] = useState('')
+
+            function getFileExtension(fileType) {
+                switch (fileType) {
+                  case "image/jpeg":
+                    return ".jpg";
+                  case "image/png":
+                    return ".png";
+                  case "application/pdf":
+                    return ".pdf";
+                  case "application/msword":
+                    return ".doc";
+                  case "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
+                    return ".docx";
+                  case "application/vnd.ms-excel":
+                    return ".xls";
+                  case "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":
+                    return ".xlsx";
+                  case "application/vnd.ms-powerpoint":
+                    return ".ppt";
+                  case "application/vnd.openxmlformats-officedocument.presentationml.presentation":
+                    return ".pptx";
+                  case "audio/mpeg":
+                    return ".mp3";
+                  case "audio/x-wav":
+                    return ".wav";
+                  case "video/mp4":
+                    return ".mp4";
+                  case "video/x-msvideo":
+                    return ".avi";
+                  case "application/zip":
+                    return ".zip";
+                  case "application/x-rar-compressed":
+                    return ".rar";
+                  case "text/plain":
+                    return ".txt";
+                  case "application/javascript":
+                    return ".js";
+                  case "text/css":
+                    return ".css";
+                  case "text/html":
+                    return ".html";
+                  case "application/json":
+                    return ".json";
+                  default:
+                    return "";
+                }
+              }
     
 
-    function handleType(type) {
-        switch (type) {
-            case "Image/JPG":
-                return ("Image")
-            case "Application/Pdf":
-                return ("PDF")
-            case "Application/X-Msdownload":
-                return ("Application")
-
-        }
-    }
 
     const navigate = useNavigate()
 
@@ -35,11 +71,14 @@ const Uploader = () => {
 
 
     async function uploadFile(file) {
+            getFileExtension(file.type)
         try {
+            
+            
             
             const data = new FormData();
             data.append('file', file);
-            data.append('_fileType', file.type);
+            data.append('_fileType', getFileExtension(file.type));
             data.append('_fileName', file.name);
             data.append('_fileWeight', file.size);
             data.append('_idProyect', user._idProyect);
@@ -71,7 +110,7 @@ const Uploader = () => {
         setFileWeight(fileSelection.size)
         setIdProyect(user._idProyect)
         setIdUser(user._idUser)
-    }
+    }   
 
     return (
         <div className="uploader_wrapper">
