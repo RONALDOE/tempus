@@ -13,7 +13,7 @@ const CheckToken = () => {
     axios.post('http://localhost:8000/auth/check-token', { token })
     .then((response) => {
       if(location.pathname === "/" || location.pathname === "/signup") return;
-        if (!response.data.valid) {
+      if (!response.data.valid) {
           navigate('/login');
         }
       })

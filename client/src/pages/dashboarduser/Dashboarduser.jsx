@@ -14,16 +14,17 @@ export default function Dashboard() {
 
   
 
-
-
-
+  
+  
   const [user, setUser] = useUserContext();
-
+  
   const [employee, setEmployee] = useState([])
   const [proyect, setProyect] = useState([])
- 
+  const [uploads, setUploads] = useState([])
+  
+  const files = uploads;
   useEffect(() =>{
-
+    
     async function fetchEmplooyeData(id){
       const res = await axios.get(`http://localhost:8000/employees/${id}`)
       console.table(res.data)
@@ -32,8 +33,23 @@ export default function Dashboard() {
     }
     fetchEmplooyeData(user._idEmployee)
   }, [])
-
-
+  
+  useEffect(()=>{
+    async function fetchUploadsData(){
+      const res = await axios.get('http://localhost:8000/files/')
+      setUploads(res.data)
+      console.table(res.data)
+      console.log(uploads)
+    }
+    fetchUploadsData()
+  }, [])
+  
+  async function getUploadUser(id){
+    const res = await axios.get('http://localhost:8000/users/'+ id)
+    return res.data[0]
+  }
+  
+  
   useEffect(() =>{
     async function fetchProyectData(id){
       const res = await axios.get(`http://localhost:8000/proyects/` + id)
@@ -42,32 +58,34 @@ export default function Dashboard() {
     }
     fetchProyectData(user._idProyect)
   }, [])
-
-
+  
+  
   const [userTask, setUserTask] =useState([])
-
+  
   useEffect(()=>{
     async function fetchTaskData(id){
       const res = await axios.get(`http://localhost:8000/tasks/user/${id}`)
-
+      
       setUserTask(res.data)
       console.log(res.data._taskDeadline)
     }
     fetchTaskData(user._idEmployee)
   }, [])
-
+ const [namePic, setNamePic] = useState("")
  
-  const [time, setTime] = useState(new Date());
-  
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTime(new Date());
-      
+ 
+ const [time, setTime] = useState(new Date());
+ 
+ useEffect(() => {
+   const interval = setInterval(() => {
+     setTime(new Date());
+     
     }, 1);
     
-  
+    
     return () => clearInterval(interval);
   }, []);
+  CheckToken();
   
   const [loading, setLoading] = useState(true);
 
@@ -134,14 +152,40 @@ export default function Dashboard() {
           <h4 className="dashTitle">Lastest Uploads</h4>
 
           <table className="uploaded-files-table">
+            <thead>
+
             <tr>
-              <th>{"Name"}</th>
-              <th>{"Weight"}</th>
-              <th>{"Upload Date"}</th>
-              <th>{"Author"}</th>
-              <th>{"Proyect"}</th>
-              <th>{"Download"}</th>
+              <th className="tableHeader">Name</th>
+              <th className="tableHeader">Weight</th>
+              <th className="tableHeader">Upload Date</th>
+              <th className="tableHeader">Author</th>
+              <th className="tableHeader">Proyect</th>
+              <th className="tableHeader">Download</th>
             </tr>
+            </thead>
+            <tbody>
+            {files.length === 0? (<tr className="tr">
+                  <td className=" td noDataCell" colSpan={7}>
+                    No data
+                  </td>
+                </tr>
+                ) : (
+                  files.map((upload) =>(
+              
+                <tr className="tr" key={upload._idUpload}>
+                  <td className="td">{upload._fileName}</td>
+                  <td className="td">{upload._fileWeight}</td>
+                  <td className="td">{upload._timestamp}</td>
+                  <td className="td">{upload.userName}</td>
+                  <td className="td">{upload._idProyect}</td>
+                  <td className="td">{upload._idProyect}</td>
+
+
+                </tr>
+              ))) }
+            
+        
+            </tbody>
             <tr></tr>
             <tr></tr>
           </table>
@@ -152,11 +196,17 @@ export default function Dashboard() {
           <span className="clockTime">{time.toLocaleTimeString()}</span> 
         </div>
         <div className="userCard">
-          <img
+           {( user._photo ?  <img
             className="userPic"
-            src={userDefaultImage}
+            src={user._photo}
             alt="User Profile Pic"
-          />
+          /> :<img
+          className="userPic"
+          src={userDefaultImage}
+          alt="User Profile Pic"
+        /> 
+          
+          )}
 
           <p style={{ marginTop: ".3rem", marginBottom: "1rem" }}>
             {user._userName}

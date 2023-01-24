@@ -18,6 +18,7 @@ CREATE TABLE Users(
 _idUser INT AUTO_INCREMENT,
 _userName VARCHAR(35) NOT NULL UNIQUE,
 _password VARCHAR(255) NOT NULL,
+_userPhoto VARCHAR(255) NULL,
 _idEmployee INT NOT NULL,
 _idCustomer INT NOT NULL,
 _idProyect INT NULL,
@@ -132,17 +133,18 @@ CREATE TABLE WorkGroups (
 CREATE TABLE File_Uploads (
 _idUpload INT AUTO_INCREMENT,
 _fileType VARCHAR(10) NOT NULL,
+_fileKey VARCHAR(255) NOT NULL,
 _fileName VARCHAR(100) NOT NULL,
-_file BLOB NOT NULL,
-_fileWeight BIGINT NOT NULL,
+_fileWeight VARCHAR(30) NOT NULL,
 _idProyect INT NOT NULL,
-_idTask INT NOT NULL,
-_timestamp DATETIME NOT NULL,
+_idUser INT NOT NULL,
+_timestamp datetime NOT NULL,
 PRIMARY KEY (_idUpload),
 FOREIGN KEY (_idProyect) REFERENCES Proyects(_idProyect),
-FOREIGN KEY (_idTask) REFERENCES Tasks(_idTask)
+FOREIGN KEY (_idUser) REFERENCES Users(_idUser)
 );
 
+select * from file_Uploads;
 
 CREATE TABLE Invoices(
 _idInvoice INT AUTO_INCREMENT,

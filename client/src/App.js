@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import Mainpage from "./pages/mainpage/Mainpage";
 import Home from "./pages/home/Home.js";
-import Uploader from "./pages/uploader/Uploader.js";
+import Uploader from "./pages/uploader/Uploader";
 import Stadistics from "./pages/stadistics/Stadistics.js";
 import Nopage from "./pages/nopage/Nopage";
 import Login from "./pages/login/Login.jsx";

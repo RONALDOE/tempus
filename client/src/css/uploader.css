@@ -16,7 +16,10 @@
     padding: 15px;
     width: 100%;
     min-height: 100vh;
-    background: var(--accent);
+    background-image: url("../assets/background.svg");
+    background-position: 0%;
+    background-repeat: no-repeat;
+    background-size:cover ;
 }
 
 .uploader_box{
@@ -38,7 +41,6 @@
     font-size: 20px;
     font-weight: 600;
 }
-
 .uploader_uploadlabel{
     width: 100%;
     min-height: 100px;
@@ -46,9 +48,31 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 3px dashed var(--accent);
+    border: .3em dashed var(--calidAccent);
     cursor: pointer;
 }
+
+.uploadFileButton{
+    background: var(--accent);
+    color: #ffff;
+    padding: 5px 15px;
+    font-size: 20px;
+    text-transform: capitalize;
+    position: relative;
+    margin-top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 700;
+    border: 0px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px; 
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    cursor: pointer;
+}
+
+
 
 .uploader_uploadlabel span{
     font-size: 70px;
