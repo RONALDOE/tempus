@@ -1,0 +1,39 @@
+.filesContainer {
+    width: 33.3333333333333333333333333333333333333333333333333vh;
+    width: 150vh;
+    height: 90vh;
+    border-radius: 0.5rem;
+    box-shadow: rgba(93, 93, 102, 0.2) 0px 7px 29px 0.5rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display:flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    align-content: flex-start
+    
+  }
+
+  .fileView{
+    width: 5rem;
+    height: 8rem;
+    border: 1px red solid;
+    margin: 1rem;
+  }
+
+  .fileView > img{
+    width: 3rem;
+    height: 5rem;
+    border: 1px red solid;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 1rem;
+  }
+  .fileView > span{
+    text-align: center;
+    position: relative ;
+    left: 10%;
+
+  }

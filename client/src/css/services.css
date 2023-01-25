@@ -21,12 +21,12 @@
   cursor: pointer;
 }
 
-.card:hover {
+.Servicecard:hover {
   height: 350px;
   transition: .3s;
 }
 
-.card:hover .content {
+.Servicecard:hover .content {
   transform: translateY(-170px);
   opacity: 1;
   visibility: visible;

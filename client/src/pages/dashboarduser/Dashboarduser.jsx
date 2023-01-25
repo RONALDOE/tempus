@@ -153,11 +153,30 @@ export default function Dashboard() {
   //   link.click();
   //   document.body.removeChild(link);
   // };
+//   const [initials, setInitials] = useState('')
+  
+//   function imageinitials(){
+//     const nameArray = user._userName.split(" ");
+//     const initialName = nameArray[0][0];
+//     const initialLastName = nameArray[1][0];
+//     setInitials(initialName + initialLastName) ;
+//     console.log(initials)
+// }
+
+function getInitials(name) {
+  var initials = name.match(/\b\w/g) || [];
+  initials = ((initials.shift() || '') + (initials.pop() || '')).toUpperCase();
+  return initials;
+}
+
+// Uso de la función
+var userInitials = getInitials(employee._name + "  " + employee._lastName);
+
+
   AWS.config.update({
     accessKeyId: 'AKIA4GUEUVFEFPSGSJMX',
     secretAccessKey: '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'
   });
-  
 
   const [downloadUrl, setDownloadUrl] = useState(null);
 
@@ -224,7 +243,7 @@ export default function Dashboard() {
             <tbody className="tbody">
             {files.length === 0? (<tr className="tr">
                   <td className=" td noDataCell" colSpan={7}>
-                    No data
+                    No Files
                   </td>
                 </tr>
                 ) : (
@@ -234,7 +253,7 @@ export default function Dashboard() {
                   <td className="td">{upload._fileName.length > 13? upload._fileName.slice(0,13) : upload._fileName  }</td>
                   <td className="td">{formatFileSize(upload._fileWeight)}</td>
                   <td className="td">{upload._timestamp}</td>
-                  <td className="td">{upload.userName}</td>
+                  <td className="td">{upload.userName === user._userName? "You": upload.Username}</td>
                   <td className="td">{upload._idProyect}</td>
                   <td className="td"><a href={`http://localhost:8000/files/download/${upload._fileKey}@${upload._fileName}`}> <button className="downloadBtn" ><i class="fa-solid fa-file-arrow-down fa-xl"/></button></a></td>
 
@@ -253,17 +272,7 @@ export default function Dashboard() {
           <span className="clockTime">{time.toLocaleTimeString()}</span> 
         </div>
         <div className="userCard">
-           {( user._photo ?  <img
-            className="userPic"
-            src={user._photo}
-            alt="User Profile Pic"
-          /> :<img
-          className="userPic"
-          src={userDefaultImage}
-          alt="User Profile Pic"
-        /> 
-          
-          )}
+           <div className="userPic"><span>{userInitials}</span></div>
 
           <p style={{ marginTop: ".3rem", marginBottom: "1rem" }}>
             {user._userName}
@@ -278,4 +287,3 @@ export default function Dashboard() {
     </div>
   );
 }
-//}

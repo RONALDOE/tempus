@@ -19,13 +19,19 @@ const s3 = new S3({
 const multer = require('multer')
 const upload = multer({ dest: 'uploads/' })
 
-const { uploadFile, getFileStream } = require('../config/s3.config')
+const { uploadFile} = require('../config/s3.config')
 
 const router = express()
 router.use(express.json())
 
 router.get('/', (req, res) => {
-    db.query('SELECT _fileType, _fileKey, _fileName, _fileWeight, _idProyect, (SELECT _userName FROM users WHERE _idUser = File_Uploads._idUser) AS userName, _timestamp FROM File_Uploads', (err, rows) => {
+    db.query('SELECT _idUpload, _fileType, _fileKey, _fileName, _fileWeight, _idProyect, (SELECT _userName FROM users WHERE _idUser = File_Uploads._idUser) AS userName, _timestamp FROM File_Uploads ORDER BY _timestamp DESC LIMIT 3', (err, rows) => {
+        if (err) throw err;
+        res.send(rows);
+    });
+});
+router.get('/getAll', (req, res) => {
+    db.query('SELECT  * FROM File_Uploads ORDER BY _timestamp DESC ', (err, rows) => {
         if (err) throw err;
         res.send(rows);
     });
@@ -81,6 +87,18 @@ AWS.config.update({
     secretAccessKey: 'A1yIs3vf0zC85SA3yHcFv4Si36IECc6taPIRGqt5',
     region: "us-east-1"
   });
+
+    function uploadImage(img) {
+        const imgStream = fs.createReadStream(file.path)
+      
+        const uploadParams = {
+          Bucket: bucketName,
+          Body: fileStream,
+          Key: img.filename
+        }
+      
+        return s3.upload(uploadParams).promise()
+      }
 
 router.get('/download/:fileData', (req, res) => {
     const  fileData  = req.params.fileData;

@@ -36,7 +36,7 @@ hr {
 }
 
 .members {
-    margin-top: 5rem;
+    margin-top: 1rem;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -53,8 +53,8 @@ hr {
 }
 
 .ourteamimg {
-    width: 80px;
-    height: 80px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     margin: 10px;
 }
@@ -63,7 +63,7 @@ hr {
 .ourteamp {
     color: var(--black1);
     text-align: center;
-    font-size: 12px;
+    font-size: 1rem;
     margin: 7px;
     font-family: "Poppins", sans-serif;
 

@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { handlePricing } from "../../../pages/singup/Singup";
 
+
 const Pricing = (props) => {
   const [pricings, setPricings] = useState([]);
   const [thisClass, setThisClass] = (" notShowing")

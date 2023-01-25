@@ -11,7 +11,7 @@ export default class Footer extends Component {
             <p><a href="google.com">Sobre Nosotros</a></p>
             <p><a href="google.com">Contactanos</a></p>
             <p><a href="google.com">Precios</a></p>
-            <p><a href='mailto:tempus@gmail.com?Subject=Tempus'>tempus@gmail.com</a></p>
+            <p><a href='mailto:tempus@msanchez.com?Subject=Tempus Email'>tempus@msanchez.com</a></p>
             </div>
 
         <div className='footer-item'>

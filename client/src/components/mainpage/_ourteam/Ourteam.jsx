@@ -1,35 +1,35 @@
 import React, { Component } from "react";
 import "../../../css/ourteam.css";
-import gabriel from "../../../assets/mainpage/gabriel.png";
-import robinson from "../../../assets/mainpage/robinson.png";
-import nick from "../../../assets/mainpage/nick.png";
-import ronaldo from "../../../assets/mainpage/ronaldo.png";
+import presi from "../../../assets/mainpage/presi.jpeg"
+import nis from "../../../assets/mainpage/nis.jpeg"
+import rona from "../../../assets/mainpage/rona.jpeg"
+import robin from "../../../assets/mainpage/robin.jpeg"
 
 export default class Ourteam extends Component {
   render() {
     return (
       <div id="ourteambody">
         <div className="main-container">
-          <h2 className="ourteamh2">Nuestro Equipo</h2>
+          <h2 className="ourteamh2">Our Team</h2>
           <hr />
           <div className="members">
             <div className="team-member">
-              <img className='ourteamimg'src={gabriel} alt="" />
+              <img className='ourteamimg'src={presi} alt="" />
               <h4 className="ourteamh4">Gabriel Rosario</h4>
               <p className="ourteamp">Web Developer</p>
             </div>
             <div className="team-member">
-              <img className="ourteamimg" src={robinson} alt="" />
+              <img className="ourteamimg" src={robin} alt="" />
               <h4 className="ourteamh4">Robinson Novo</h4>
               <p className="ourteamp">Web Developer</p>
             </div>
             <div className="team-member">
-              <img className="ourteamimg" src={nick} alt="" />
+              <img className="ourteamimg" src={nis} alt="" />
               <h4 className="ourteamh4">Nick Payano</h4>
               <p className="ourteamp">Web Developer</p>
             </div>
             <div className="team-member">
-              <img className="ourteamimg" src={ronaldo} alt="" />
+              <img className="ourteamimg" src={rona} alt="" />
               <h4 className="ourteamh4">Ronaldo Suero</h4>
               <p className="ourteamp">Web Developer</p>
             </div>

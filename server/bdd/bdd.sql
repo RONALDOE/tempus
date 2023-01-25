@@ -146,6 +146,7 @@ FOREIGN KEY (_idUser) REFERENCES Users(_idUser)
 
 select * from file_Uploads;
 
+SELECT (_fileType, _fileKey,_fileName, _fileWeight, _idProyect,(SELECT _userName from users where _idUser = _idUser), _timestamp)  FROM File_Uploads;
 CREATE TABLE Invoices(
 _idInvoice INT AUTO_INCREMENT,
 _invoiceAmount FLOAT NOT NULL,

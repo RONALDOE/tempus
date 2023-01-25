@@ -39,7 +39,7 @@ const Login = () => {
       .then((response) => {
         handleStatus(response.status)
         const token = response.data.token;
-        document.cookie = `token=${token}; max-age=${3600 * 3}; path=/; samesite=strict`
+        document.cookie = `token=${token}; max-age=${3600 * 1}; path=/; samesite=strict`
         console.log(document.cookie)
         setUser(response.data.results[0])
         console.log(response.data.results)

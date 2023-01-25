@@ -10,8 +10,10 @@ import Joinus from "./pages/joinus/Joinus.js";
 import Signup from "./pages/singup/Singup";
 import Employeescrud from "./pages/cruds/Employeesrud";
 import Proyectscrud from "./pages/cruds/Proyectscrud"
+import Guildscrud from "./pages/cruds/Guildscrud"
 import Dashboard from "./pages/dashboarduser/Dashboarduser";
 import Sidebar from "./components/_sidebar/Sidebar";
+import { Filesview } from "./pages/Filesview";
 import NewEmployee from "./pages/inserters/NewEmployee";
 import UpdateEmployee from "./pages/updaters/EditEmployee";
 import LoadingScreen from "./components/_loadingscreen/Loadingscreen";
@@ -48,9 +50,11 @@ export default function App() {
           <Route path="signup" element={<Signup/>} />
           <Route path="stadistics" element={<Stadistics />} />
           <Route path="login" element={<Login />} />
+          <Route path="files" element={<Filesview />} />
           <Route path="pay/:id" element={<ReactPayPal />} />
           <Route path="employees" element={<Employeescrud />} />
           <Route path="proyects" element={<Proyectscrud />} />
+          <Route path="guilds" element={<Guildscrud />} />
           <Route path="employee/new" element={<NewEmployee />} />
           <Route path="employee/:idEmployee" element={<UpdateEmployee />} />
           <Route path="joinus" element={<Joinus />} />
