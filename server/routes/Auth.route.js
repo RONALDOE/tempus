@@ -42,6 +42,24 @@ router.post('/check-token', (req, res) =>{
   }
 })
 
+router.post('/signup', (req, res) =>{
+  const values = [
+    req.body._userName,
+    req.body._password,
+    req.body._proyectName,
+    req.body._proyectDescription,
+    req.body._proyectDescription,
+    req.body._name,
+    req.body._lastName,
+    req.body._idNumber,
+    req.body._cellphone,
+    req.body._email
+  ]
+
+  const queryEmployee = `Insert into employees (_name, _lastName, __idNumber, _cellphone, _email) values ('${values._name}', '${values._lastName}', '${values._idNumber}', '${values._cellphone}', '${values.email}');`
+  const queryUser = `insert into users(_userName, _password,_idEmployee,_idProyect) values('${values._userName}', '${values._password}', (select _idEmployee from employees where employees._idNumber ='${values._idNumber}, (Select _idProyect where proyects._proyectName = ${values._proyectName} )) )`
+  const queryProyects = `insert into proyects(_proyectName, _proyectDescription, _proyectAdmin  )`
+}
 
 
 module.exports = router

@@ -1,7 +1,0 @@
-.modal {
-    display: none; /* Oculta la ventana modal por defecto */
-  }
-  
-  .modal.is-open {
-    display: block; /* Muestra la ventana modal cuando el estado "isOpen" es verdadero */
-  }

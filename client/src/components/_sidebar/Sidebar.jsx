@@ -117,14 +117,8 @@ const Sidebar = () => {
               <span className="tooltip">Settings</span>
             </li>
             <li className="profile">
-              <div className="profile-details">
-                <img src="profile.jpg" alt="profileImg" />
-                <div className="name_job">
-                  <div className="name">Prem Shahi</div>
-                  <div className="job">Web designer</div>
-                </div>
-              </div>
-              <button onClick={handleLogout}>
+              
+              <button onClick={handleLogout} style={{width: "inherit", height:"inherit", color:"transparent"}}>
 
                 <i className='bx bx-log-out' id="log_out" />
               </button>

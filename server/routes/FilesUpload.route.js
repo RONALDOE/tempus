@@ -82,6 +82,33 @@ router.post('/upload', upload.single('file'), async (req, res) => {
 
 
 })
+
+
+router.delete("/delete/:id", (req, res) =>{
+    const id = req.params.id
+    db.query(`Select _fileKey from File_Uploads where _idUpload = ${id}`,
+    (err, results) =>{
+        if(err) return res.send(err)
+         const key = results[0]._fileKey
+        
+         if (err) return res.send(err)
+         
+         s3.deleteObject({ Bucket: 'tempus-dev-bucket', Key: key }, (err, data) => {
+        })
+         
+        });
+        db.query(`DELETE FROM File_Uploads WHERE _idUpload = ${id}`, (err, results) => {
+            if (err) return res.send(err)
+        });
+
+        console.log("Archivo eliminado exitosamente")
+
+        return res.send("Archivo eliminado exitosamente")
+
+        }
+        
+        )
+
 AWS.config.update({
     accessKeyId: 'AKIA4GUEUVFEFPSGSJMX',
     secretAccessKey: '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',

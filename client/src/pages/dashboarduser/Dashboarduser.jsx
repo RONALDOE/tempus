@@ -2,7 +2,7 @@ import React, {useState, useEffect, useContext} from "react";
 import "../../css/dashboarduser.css";
 import userDefaultImage from "../../assets/user.png";
 import {Link} from "react-router-dom"
-import filesupload from "../../assets/filesupload.png"
+import filesupload from "../../assets/filesupload.gif"
 import { useUserContext } from '../../contexts/UserContext';
 import axios from "axios";
 import LoadingScreen from "../../components/_loadingscreen/Loadingscreen";
@@ -14,6 +14,18 @@ import AWS,{ S3 } from 'aws-sdk';
 
 export default function Dashboard() {
 
+  const [formattedDate, setformattedDate] = useState("")
+      const [formattedTime, setformattedTime] = useState("")
+
+      function formatDate(date){
+        const date1 = moment(date).format("DD/MM/YYYY")
+        const date2 = moment(date).format("hh:mm:ss")
+        console.log(date1);
+        setformattedDate(date1)
+        setformattedTime(date2)
+
+    }
+  
   
   function formatFileSize(sizeInBytes) {
     if (sizeInBytes < 1000000) 
@@ -205,21 +217,25 @@ var userInitials = getInitials(employee._name + "  " + employee._lastName);
         <div className="topCard" >
           <div className="dashicon" id="proyectIcon" />
           <h4 className="dashTitle">Proyect</h4>
-          
-            
-            
-            <img className="imageDash"  src="" alt="" />
-          
-        </div>
-        <div className="topCard" >
-          <div className="dashicon" />
-          <h4 className="dashTitle">Tasks</h4>
           <span className="dashItemText">
-            <p>Upcoming Task</p>
-            <p>{userTask._taskName}</p>
-            <p><Moment format="dddd, MMMM Do YYYY">{userTask._taskDeadline}</Moment></p>
+            <p>Your Proyect:</p>
+            <p>{proyect._proyectName}</p>
+            <p>{proyect._proyectDescription}</p>
+            {/* <p><Moment format="dddd, MMMM Do YYYY">{userTask._taskDeadline}</Moment></p> */}
           </span>
+            
+            
+          
         </div>
+        {/* <div className="topCard" > */}
+          {/* <div className="dashicon" /> */}
+          {/* <h4 className="dashTitle">Tasks</h4> */}
+          {/* <span className="dashItemText"> */}
+            {/* <p>Upcoming Task</p> */}
+            {/* <p>{userTask._taskName}</p> */}
+            {/* <p><Moment format="dddd, MMMM Do YYYY">{userTask._taskDeadline}</Moment></p> */}
+          {/* </span> */}
+        {/* </div> */}
       </div>
 
       <div className="bottomItems">
@@ -252,7 +268,7 @@ var userInitials = getInitials(employee._name + "  " + employee._lastName);
                     <tr className="tr" key={upload._idUpload}>
                   <td className="td">{upload._fileName.length > 13? upload._fileName.slice(0,13) : upload._fileName  }</td>
                   <td className="td">{formatFileSize(upload._fileWeight)}</td>
-                  <td className="td">{upload._timestamp}</td>
+                  <td className="td"><Moment format="DD/MM/YY">{userTask._timestamp}</Moment></td>
                   <td className="td">{upload.userName === user._userName? "You": upload.Username}</td>
                   <td className="td">{upload._idProyect}</td>
                   <td className="td"><a href={`http://localhost:8000/files/download/${upload._fileKey}@${upload._fileName}`}> <button className="downloadBtn" ><i class="fa-solid fa-file-arrow-down fa-xl"/></button></a></td>

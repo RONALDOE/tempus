@@ -11,29 +11,63 @@
     display:flex;
     flex-direction: row;
     flex-wrap:wrap;
-    align-content: flex-start
-    
+    gap: 1rem;
+    overflow: scroll;
+    overflow-x: hidden;
+    align-content: flex-start;
+    padding-left: 2rem;
+    z-index: 3;
+    background-color: white;
   }
 
+  #filesBody{
+    background-image: url("../assets/background.svg") ;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    
+
+  }
+
+  .filesDownloadBtn{
+    width: 2rem;
+  height: 2rem;
+  background-color: var(--logo-2);
+  border-radius: .5rem;
+  cursor:pointer;
+}
+.filesDeleteBtn{
+    width: 2rem;
+  height: 2rem;
+  background-color: var(--logo-1);
+  border-radius: .5rem;
+  cursor:pointer;
+}
   .fileView{
     width: 5rem;
     height: 8rem;
-    border: 1px red solid;
     margin: 1rem;
+    padding: 8px;
   }
 
   .fileView > img{
     width: 3rem;
-    height: 5rem;
-    border: 1px red solid;
+    height: 3rem;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    margin-top: 1rem;
+    cursor: pointer;
+    margin-top: .5rem;
   }
   .fileView > span{
-    text-align: center;
     position: relative ;
-    left: 10%;
+    left: 20%;
+    word-wrap:break-word;
+    font-weight: 800;
+    font-size: 13px;
+    cursor: pointer;
+
 
   }
