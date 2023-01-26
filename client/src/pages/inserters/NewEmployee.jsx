@@ -3,8 +3,11 @@ import "../../css/newinsert.css";
 import InputMask from 'react-input-mask'
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import CheckToken from '../../utils/CheckToken'
 
 function NewEmployee() {
+  CheckToken()
+  
   const [employee, setEmployees] = useState({
     _name: "",
     _lastName: "",

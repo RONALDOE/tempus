@@ -48,7 +48,6 @@ router.post('/signup', (req, res) =>{
     req.body._password,
     req.body._proyectName,
     req.body._proyectDescription,
-    req.body._proyectDescription,
     req.body._name,
     req.body._lastName,
     req.body._idNumber,
@@ -57,9 +56,25 @@ router.post('/signup', (req, res) =>{
   ]
 
   const queryEmployee = `Insert into employees (_name, _lastName, __idNumber, _cellphone, _email) values ('${values._name}', '${values._lastName}', '${values._idNumber}', '${values._cellphone}', '${values.email}');`
+  const queryProyects = `insert into proyects(_proyectName, _proyectDescription, _proyectAdmin) values ('${values._proyectName}', '${values._proyectDescription}', (select _idUser from users where users._userName ='${values._userName}'))`
   const queryUser = `insert into users(_userName, _password,_idEmployee,_idProyect) values('${values._userName}', '${values._password}', (select _idEmployee from employees where employees._idNumber ='${values._idNumber}, (Select _idProyect where proyects._proyectName = ${values._proyectName} )) )`
-  const queryProyects = `insert into proyects(_proyectName, _proyectDescription, _proyectAdmin  )`
-}
+
+  db.query(queryEmployee,(error, results)=>{
+    if(error) return res.send(error)
+    console.log("Paso 1")
+  })
+  db.query(queryProyects, (error, results)=>{
+    
+    if(error) return res.send(error)
+    console.log("Paso 2")
+  })
+  db.query(queryUser, (error,results)=>{
+    if(error) return res.send(error)
+    console.log("Paso 2")
+  })
+
+
+})
 
 
 module.exports = router

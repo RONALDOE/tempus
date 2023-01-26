@@ -2,9 +2,11 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "../../css/crudtable.css";
+import CheckToken from '../../utils/CheckToken'
 
 function Employeestable() {
   //Ventana Modal
+  CheckToken()
 
   //Tomar datos de la base de datos
 
@@ -23,7 +25,7 @@ function Employeestable() {
 
   async function handleDelete(id) {
     try {
-      await axios.delete("http://localhost:8000/employee/" + id);
+      await axios.delete("http://localhost:8000/employees/" + id);
       console.log("si")
       window.location.reload();
     } catch (error) {

@@ -5,7 +5,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: #CACACA;
+    height: 100vh;
+    background-image: url("../assets/background.svg");
 }
 
 .indexedStep {
@@ -38,7 +39,7 @@
   
   #progressbar li {
     list-style-type: none;
-    color: #616161;
+    color: white;
     text-transform: uppercase;
     font-size: 1rem;
     width: 33.33%;
@@ -101,6 +102,8 @@
     width: 3rem;
     height: 3rem;
     background: var(--accent);
+    border: 1px white;
+    border-style:solid ;
     color: white;
   }
 

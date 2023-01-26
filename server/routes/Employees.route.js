@@ -67,8 +67,11 @@ router.get("/", (req, res) => {
   router.delete("/:id", (req, res) => {
     const id = req.params.id;
   
-    db.query("DELETE FROM Employees WHERE _idEmployee = ?", id, (error, results) => {
-      if (error) return res.json(error);
+    db.query(`DELETE FROM Employees WHERE _idEmployee = ${id}`, (error, results) => {
+      if (error){
+        console.log(error)
+        return res.json(error);
+      } 
 
       return res.json(results);
     });

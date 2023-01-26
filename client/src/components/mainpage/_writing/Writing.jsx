@@ -7,7 +7,7 @@ const el = useRef(null);
 
 useEffect(() => {
     const typed = new Typed(el.current, {
-        strings: ["Tiempo Ahorrado", "Agilidad", "Trabajo en equipo", "Facilidad", "Lejos pero cerca"],
+        strings: ["Time Saved", "Agility", "Teamwork", "Ease", "Far but Close"],
         startDelay: 150,
         typeSpeed: 100,
         backSpeed: 100,

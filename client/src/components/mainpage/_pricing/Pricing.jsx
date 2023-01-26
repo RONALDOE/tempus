@@ -76,7 +76,7 @@ let pricingContainerClass = "";
      
      pricings.map((pricing) => (
        
-       <Link to={`/pay/${pricing._idPlan}`} >
+       <Link to="/signup" >
          
        <div className="pricing-item" key={pricing._idPlan}>
          <h3 className="pricing-kit">{pricing._planType}</h3>

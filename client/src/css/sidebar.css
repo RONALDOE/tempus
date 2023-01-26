@@ -230,6 +230,12 @@
   width: 50px;
   background: none;
 }
+#log_out{width: "inherit"; 
+  height:"inherit"; 
+  background-color: var(--unnaturalBlue);
+border: 0px solid;
+margin-top: 21rem;
+}
 .home-section{
   position: relative;
   background: #E4E9F7;

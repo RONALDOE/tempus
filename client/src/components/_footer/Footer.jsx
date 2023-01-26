@@ -8,17 +8,16 @@ export default class Footer extends Component {
         <div className='footer-section'>
             <div className='footer-item'>
             <h2>Tempus</h2>
-            <p><a href="google.com">Sobre Nosotros</a></p>
-            <p><a href="google.com">Contactanos</a></p>
-            <p><a href="google.com">Precios</a></p>
+            <p><a href="google.com">About Us</a></p>
+            <p><a href="google.com">Contact Us</a></p>
+            <p><a href="google.com">Prices</a></p>
             <p><a href='mailto:tempus@msanchez.com?Subject=Tempus Email'>tempus@msanchez.com</a></p>
             </div>
 
         <div className='footer-item'>
             <h2>Ayuda</h2>
-            <p><a href="google.com">Preguntas Frecuentes</a></p>
-            <p><a href="google.com">Reembolsos</a></p>
-            <p><a href="google.com ">Formas de Pago</a></p>
+            <p><a href="google.com">FAQ</a></p>
+            <p><a href="google.com">Redeem</a></p>
         </div>
         <div className='footer-item social'>
         <h2> Follow Us </h2>

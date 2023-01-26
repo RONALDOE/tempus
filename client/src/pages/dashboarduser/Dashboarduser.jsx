@@ -269,7 +269,7 @@ var userInitials = getInitials(employee._name + "  " + employee._lastName);
                   <td className="td">{upload._fileName.length > 13? upload._fileName.slice(0,13) : upload._fileName  }</td>
                   <td className="td">{formatFileSize(upload._fileWeight)}</td>
                   <td className="td"><Moment format="DD/MM/YY">{userTask._timestamp}</Moment></td>
-                  <td className="td">{upload.userName === user._userName? "You": upload.Username}</td>
+                  <td className="td">{upload.userName === user._userName? "You": upload.userName}</td>
                   <td className="td">{upload._idProyect}</td>
                   <td className="td"><a href={`http://localhost:8000/files/download/${upload._fileKey}@${upload._fileName}`}> <button className="downloadBtn" ><i class="fa-solid fa-file-arrow-down fa-xl"/></button></a></td>
 

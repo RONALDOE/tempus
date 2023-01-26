@@ -1,13 +1,13 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { useNavigate, Link } from "react-router-dom";
 import LoadingScreen from '../_loadingscreen/Loadingscreen';
-
 import '../../css/sidebar.css'
 
 
 import { useLocation } from 'react-router-dom';
 
 const Sidebar = () => {
+
 
   const navigate = useNavigate();
 
@@ -52,7 +52,7 @@ const Sidebar = () => {
     }
 
 
-
+    
 
     return (
 
@@ -81,7 +81,7 @@ const Sidebar = () => {
               </Link>
               <span className="tooltip">Employees</span>
             </li>
-            <li>
+            {/* <li>
               <a href="#">
                 <i className='bx bx-chat' ></i>
                 <span className="links_name">Messages</span>
@@ -94,16 +94,18 @@ const Sidebar = () => {
                 <span className="links_name">Analytics</span>
               </a>
               <span className="tooltip">Analytics</span>
-            </li>
+            </li> */}
             <li>
+            <Link to="/files">
               <a href="#">
                 <i className='bx bx-folder' ></i>
                 <span className="links_name">File Manager</span>
               </a>
               <span className="tooltip">Files</span>
+              </Link>
             </li>
             <li>
-              <a href="#">
+              {/* <a href="#">
                 <i className='bx bx-cart-alt' ></i>
                 <span className="links_name">Proyect</span>
               </a>
@@ -116,11 +118,12 @@ const Sidebar = () => {
               </a>
               <span className="tooltip">Settings</span>
             </li>
-            <li className="profile">
+            <li className="profile"> */}
               
-              <button onClick={handleLogout} style={{width: "inherit", height:"inherit", color:"transparent"}}>
 
-                <i className='bx bx-log-out' id="log_out" />
+              <button id="log_out"onClick={handleLogout}>
+
+                <i className='bx bx-log-out'  />
               </button>
             </li>
           </ul>
